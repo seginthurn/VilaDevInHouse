@@ -1,0 +1,18 @@
+villager
+	id serial
+	name varchar(128)
+	surname varchar(256)
+	birthday date
+	income money
+	cpf varchar(256)
+	appuser_id Integer
+
+app_user
+	id serial
+	username varchar(120)
+	password varchar(120)
+	role_id Integer
+
+role
+	id serial
+	role_name varchar(120)
