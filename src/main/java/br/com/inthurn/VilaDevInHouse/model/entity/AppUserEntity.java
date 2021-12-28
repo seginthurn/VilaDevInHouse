@@ -1,7 +1,5 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import br.com.inthurn.VilaDevInHouse.interfaces.AppEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

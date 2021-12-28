@@ -1,9 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.service.restService.appservices;
 
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
-import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

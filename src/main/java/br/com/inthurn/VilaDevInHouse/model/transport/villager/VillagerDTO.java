@@ -1,23 +1,25 @@
-package br.com.inthurn.VilaDevInHouse.model.transport;
+package br.com.inthurn.VilaDevInHouse.model.transport.villager;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.swing.text.View;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Optional;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VillagerDTO {
-
-    private Integer id;
+    private Optional<String> id;
     private String name;
     private String surname;
     private Date birthday;
@@ -35,8 +37,21 @@ public class VillagerDTO {
         this.email = email;
     }
 
-    public VillagerDTO(Integer id, String name) {
-        this.id = id;
+    public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf) {
         this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.income = income;
+        this.cpf = cpf;
+    }
+
+    public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf, String email, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.income = income;
+        this.cpf = cpf;
+        this.email = email;
+        this.password = password;
     }
 }
