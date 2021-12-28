@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
+import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class VillageRest {
     @PostMapping("/villager/new")
     public void addNew(VillagerDTO villagerDTO){
         villageService.addNew(villagerDTO);
+    }
+
+    @DeleteMapping("/villager/delete")
+    public void delete(@RequestParam Integer id){
+        villageService.deleteVillager(id);
     }
 
 }

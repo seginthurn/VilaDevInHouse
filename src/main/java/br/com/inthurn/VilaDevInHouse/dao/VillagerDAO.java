@@ -47,7 +47,7 @@ public class VillagerDAO{
 
     public VillagerEntity listDetailsPerId(Integer id) {
         try{
-            final String SQL = "SELECT name,surname, birthday, income, cpf, username from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
+            final String SQL = "SELECT * from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
             ResultSet resultSet = statement.executeQuery();
 
@@ -111,8 +111,19 @@ public class VillagerDAO{
     }
 
 
-    public ResponseEntity<String> deletePerId() {
-        return null;
+    public ResponseEntity<String> deletePerId(Integer id) {
+        try {
+
+            final String SQL = "DELETE FROM villager where id = ?";
+            PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
+            statement.setInt(1, id);
+            statement.executeQuery();
+            return new ResponseEntity<String>("Morador deletado", HttpStatus.OK);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ResponseEntity<String>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
+        }
     }
 
     private VillagerEntity villagerEntityFactory(ResultSet resultSet) throws SQLException{

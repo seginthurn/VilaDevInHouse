@@ -27,14 +27,10 @@ public class UserRest {
         return new ResponseEntity(appUserService.listUserById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/user/add")
-    public ResponseEntity<String> addNewUser(AppUserDTO appUserDTO){
-        try {
-            appUserService.addNewUser(appUserDTO);
-            return new ResponseEntity<>("Criado com sucesso!", HttpStatus.CREATED);
-        }catch (Exception e){
-            e.printStackTrace();
-            return new ResponseEntity<>("Algo deu errado...", HttpStatus.BAD_REQUEST);
-        }
+    @DeleteMapping("/user/{id}")
+    public void deleteUserById(@PathVariable Integer id){
+        appUserService.deleteById(id);
     }
+
+
 }

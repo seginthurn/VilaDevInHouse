@@ -24,11 +24,6 @@ public class AppUserService {
                 .collect(Collectors.toList());
     }
 
-    public void addNewUser(AppUserDTO appUserDTO){
-        appUserDAO.addNew(convertToEntity(appUserDTO));
-    }
-
-
     public AppUserDTO listUserById(Integer id){
         return this.convertToDTO(appUserDAO.listDetailsPerId(id));
     }
@@ -46,4 +41,7 @@ public class AppUserService {
         );
     }
 
+    public void deleteById(Integer id) {
+        appUserDAO.deletePerId(id);
+    }
 }

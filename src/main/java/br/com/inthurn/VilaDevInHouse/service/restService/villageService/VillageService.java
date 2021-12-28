@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.service.restService.villageService;
 
+import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
@@ -14,6 +15,9 @@ public class VillageService {
 
     @Autowired
     VillagerDAO villagerDAO;
+
+    @Autowired
+    AppUserDAO appUserDAO;
 
     public List<VillagerDTO> listAll(){
         return villagerDAO
@@ -50,6 +54,11 @@ public class VillageService {
                 villagerEntity.getIncome(),
                 villagerEntity.getCpf()
         );
+    }
+
+    public void deleteVillager(Integer id){
+        villagerDAO.deletePerId(id);
+        appUserDAO.deletePerId(id);
     }
 
 
