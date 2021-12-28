@@ -12,11 +12,15 @@
 	<artifactId>VilaDevInHouse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>VilaDevInHouse</name>
-	<description>Projeto 2 para o módulo Java + Spring do curso DevInHouse</description>
+	<description>Projeto 2 para o Módulo de Java + Spring</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
