@@ -26,6 +26,20 @@ public class VillageRest {
         }
     }
 
+    @GetMapping("/villagers/search")
+    public ResponseEntity<Object> listVillagersByName(@RequestParam String name){
+        if(name == null){
+            return new ResponseEntity<>("ERRO: O nome não pode estar vazio!", HttpStatus.BAD_REQUEST);
+        }
+        try {
+            return new ResponseEntity<Object>(villageService.listAllByName(name), HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
 
     @GetMapping("/villager/{id}")
     public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){

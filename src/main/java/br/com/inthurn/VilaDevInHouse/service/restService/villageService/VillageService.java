@@ -27,6 +27,14 @@ public class VillageService {
                 .collect(Collectors.toList());
     }
 
+    public List<VillagerDTO> listAllByName(String name){
+        return villagerDAO
+                .listByName(name)
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
     public VillagerDTO listDetailsPerId(Integer id){
         return convertToDTO(villagerDAO.listDetailsPerId(id));
     }
@@ -34,6 +42,7 @@ public class VillageService {
     public void addNew(VillagerDTO villagerDTO){
         villagerDAO.addNew(villagerDTO);
     }
+
 
 
     public VillagerEntity convertToEntity(VillagerDTO villagerDTO){
@@ -46,8 +55,11 @@ public class VillageService {
             );
 
     }
+
+
     public VillagerDTO convertToDTO(VillagerEntity villagerEntity){
         return new VillagerDTO(
+                villagerEntity.getId(),
                 villagerEntity.getName(),
                 villagerEntity.getSurname(),
                 villagerEntity.getBirthday(),

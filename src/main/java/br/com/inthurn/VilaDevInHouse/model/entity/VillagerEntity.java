@@ -27,4 +27,9 @@ public class VillagerEntity {
         this.income = income;
         this.cpf = cpf;
     }
+
+    public VillagerEntity(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
