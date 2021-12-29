@@ -3,7 +3,7 @@ villager
 	name varchar(128)
 	surname varchar(256)
 	birthday date
-	income money
+	income decimal
 	cpf varchar(256)
 	appuser_id Integer
 

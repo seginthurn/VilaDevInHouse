@@ -21,7 +21,7 @@ CREATE TABLE villager(
 	name VARCHAR(256) NOT NULL,
 	surname VARCHAR(256) NOT NULL,
 	birthday DATE NOT NULL,
-	income MONEY DEFAULT '0',
+	income DECIMAL DEFAULT '0',
 	cpf VARCHAR(256) UNIQUE DEFAULT 'Não Possui',
 	appuser_id Integer NOT NULL UNIQUE,
 	FOREIGN KEY (appuser_id) REFERENCES app_user(id)

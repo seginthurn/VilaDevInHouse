@@ -35,8 +35,8 @@ public class VillageService {
                 .collect(Collectors.toList());
     }
 
-    public VillagerDTO listDetailsPerId(Integer id){
-        return convertToDTO(villagerDAO.listDetailsPerId(id));
+    public VillagerDTO listDetailsById(Integer id){
+        return convertToDTO(villagerDAO.listDetailsById(id));
     }
 
     public void addNew(VillagerDTO villagerDTO){
