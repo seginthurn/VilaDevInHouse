@@ -51,16 +51,22 @@ public class VillagerDAO{
     }
 
 
-    public VillagerEntity listDetailsPerId(Integer id) {
+    public VillagerEntity listDetailsById(Integer id) {
         try{
             final String SQL = "SELECT * from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
-            PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
+            PreparedStatement statement = dbConnector
+                    .getConnection().
+                    prepareStatement(SQL);
+            statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
 
-            if(!resultSet.next()){
+            if(resultSet.next()){
                 return new VillagerEntity(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name")
+                        resultSet.getString("name"),
+                        resultSet.getString("surname"),
+                        resultSet.getDate("birthday"),
+                        resultSet.getBigDecimal("income"),
+                        resultSet.getString("cpf")
                 );
             }else {
                 return null;

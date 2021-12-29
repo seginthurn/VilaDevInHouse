@@ -1,6 +1,5 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class VillageRest {
     @GetMapping("/villager/{id}")
     public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
         try {
-            return new ResponseEntity<Object>(villageService.listDetailsPerId(id), HttpStatus.OK);
+            return new ResponseEntity<Object>(villageService.listDetailsById(id), HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
