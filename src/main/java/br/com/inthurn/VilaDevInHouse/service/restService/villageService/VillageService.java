@@ -7,7 +7,9 @@ import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -43,6 +45,18 @@ public class VillageService {
         villagerDAO.addNew(villagerDTO);
     }
 
+    public List<VillagerDTO> listVillagersByMonth(Object month){
+        if(month == null){
+            return null;
+        }
+
+        return villagerDAO
+                .listPerMonth(month)
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
+    }
 
 
     public VillagerEntity convertToEntity(VillagerDTO villagerDTO){
@@ -55,7 +69,6 @@ public class VillageService {
             );
 
     }
-
 
     public VillagerDTO convertToDTO(VillagerEntity villagerEntity){
         return new VillagerDTO(
@@ -70,8 +83,9 @@ public class VillageService {
 
     public void deleteVillager(Integer id){
         villagerDAO.deletePerId(id);
-        appUserDAO.deletePerId(id);
+        appUserDAO.delete(id);
     }
+
 
 
 }

@@ -25,7 +25,7 @@ public class AppUserService {
     }
 
     public AppUserDTO listUserById(Integer id){
-        return this.convertToDTO(appUserDAO.listDetailsPerId(id));
+        return this.convertToDTO(appUserDAO.listDetailsById(id));
     }
 
     public static AppUserEntity convertToEntity(AppUserDTO appUserDTO){
@@ -42,6 +42,6 @@ public class AppUserService {
     }
 
     public void deleteById(Integer id) {
-        appUserDAO.deletePerId(id);
+        appUserDAO.delete(id);
     }
 }

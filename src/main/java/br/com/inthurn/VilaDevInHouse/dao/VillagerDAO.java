@@ -1,6 +1,5 @@
 package br.com.inthurn.VilaDevInHouse.dao;
 
-import br.com.inthurn.VilaDevInHouse.interfaces.DAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
@@ -9,11 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class VillagerDAO{
@@ -23,6 +20,9 @@ public class VillagerDAO{
 
     @Autowired
     AppUserDAO appUserDAO;
+
+    @Autowired
+    MonthDAO monthDAO;
 
 
     public List<VillagerEntity> listAll(){
@@ -106,8 +106,29 @@ public class VillagerDAO{
     }
 
 
-    public List<VillagerEntity> listPerMonth(String Month) {
-        return null;
+    public List<VillagerEntity> listPerMonth(Object object) {
+        List<VillagerEntity> villagerEntityList = new ArrayList<>();
+
+        try {
+            final String SQL="SELECT id, name FROM villager WHERE EXTRACT(MONTH FROM birthday) = ?";
+            PreparedStatement statement = dbConnector
+                    .getConnection()
+                    .prepareStatement(SQL);
+            statement.setString(1, monthDAO.getMonth(object));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                villagerEntityList.add(
+                        new VillagerEntity(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name")
+                        )
+                );
+            }
+                return villagerEntityList;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return villagerEntityList;
+        }
     }
 
     public ResponseEntity<String> addNew(VillagerDTO villagerDTO) {
@@ -134,16 +155,17 @@ public class VillagerDAO{
 
     public ResponseEntity<String> deletePerId(Integer id) {
         try {
-
             final String SQL = "DELETE FROM villager where id = ?";
-            PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
+            PreparedStatement statement = dbConnector
+                    .getConnection().
+                    prepareStatement(SQL);
             statement.setInt(1, id);
             statement.executeQuery();
             return new ResponseEntity<String>("Morador deletado", HttpStatus.OK);
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            return new ResponseEntity<String>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
+
+            return new ResponseEntity<String>("Erro ao Deletar usuário", HttpStatus.BAD_REQUEST);
         }
     }
 
