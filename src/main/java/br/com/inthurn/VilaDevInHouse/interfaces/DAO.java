@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.interfaces;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -8,10 +9,8 @@ import java.util.Optional;
 public interface DAO<E> {
 
     public List<E> listAll();
-    public E listDetailsPerId(Integer id);
-    public List<E> listPerName(String name);
-    public  List<E> listPerMonth(String Month);
-    public ResponseEntity<String> addNew(E e);
-    public ResponseEntity<String> deletePerId();
+    public E listDetailsById(Integer id);
+    public Boolean addNew(E e);
+    public Boolean delete(Integer id);
 
 }

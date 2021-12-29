@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class VillageRest {
@@ -58,6 +60,11 @@ public class VillageRest {
     @DeleteMapping("/villager/delete")
     public void delete(@RequestParam Integer id){
         villageService.deleteVillager(id);
+    }
+
+    @GetMapping("/villager/search")
+    public List<VillagerDTO> listByMonth (@RequestParam Object month){
+        return villageService.listVillagersByMonth(month);
     }
 
 }

@@ -16,26 +16,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class AppUserDAO{
+public class AppUserDAO implements DAO<AppUserEntity>{
 
     @Autowired
     DatabaseConnector dbConnector;
 
-    public ResponseEntity<Object> addNew(String username, String password) {
+    public Boolean addNew(String username, String password) {
         try {
             final String SQL = "INSERT INTO app_user (username, password) VALUES (?,?)";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
             statement.setString(1, username);
             statement.setString(2, password);
             statement.executeQuery();
-            return new ResponseEntity<>(HttpStatus.OK);
+            return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            return new ResponseEntity<Object>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
+            return false;
         }
     }
 
+    @Override
     public List<AppUserEntity> listAll() {
         try {
             List<AppUserEntity> appUserDTOList = new ArrayList<>();
@@ -65,7 +65,8 @@ public class AppUserDAO{
 
     }
 
-    public AppUserEntity listDetailsPerId(Integer id) {
+    @Override
+    public AppUserEntity listDetailsById(Integer id) {
         try {
             final String SQL = "SELECT * FROM app_user WHERE id = ?";
             PreparedStatement statement = dbConnector
@@ -90,19 +91,27 @@ public class AppUserDAO{
         }
     }
 
+    @Override
+    public Boolean addNew(AppUserEntity appUserEntity) {
+        return null;
+    }
 
-    public void deletePerId(Integer id) {
+    @Override
+    public Boolean delete(Integer id){
         try {
-            final String SQL = "DELETE FROM app_user where id = ?";
+            if(listDetailsById(id) == null){
+                return false;
+            }
+
+            final String SQL = "DELETE FROM app_user WHERE id = ?";
             PreparedStatement statement = dbConnector
                     .getConnection()
                     .prepareStatement(SQL);
             statement.setInt(1, id);
             statement.executeQuery();
-            System.out.println("Usuário Deletado");
-
-        } catch (SQLException e) {
-            System.out.println("Não deletou!");
+            return true;
+        }catch (SQLException e){
+            return false;
         }
     }
 
