@@ -19,7 +19,7 @@ import java.util.Optional;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VillagerDTO {
-    private Optional<String> id;
+    private Integer id;
     private String name;
     private String surname;
     private Date birthday;
@@ -27,6 +27,11 @@ public class VillagerDTO {
     private String cpf;
     private String email;
     private String password;
+
+    public VillagerDTO(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf, String email) {
         this.name = name;
@@ -37,7 +42,8 @@ public class VillagerDTO {
         this.email = email;
     }
 
-    public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf) {
+    public VillagerDTO(Integer id, String name, String surname, Date birthday, BigDecimal income, String cpf) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
@@ -54,4 +60,6 @@ public class VillagerDTO {
         this.email = email;
         this.password = password;
     }
+
+
 }

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +28,18 @@ public class VillagerDAO{
     public List<VillagerEntity> listAll(){
         try {
             List<VillagerEntity> villagerEntityList = new ArrayList<>();
-            final String SQL = "SELECT * FROM villager";
+            final String SQL = "SELECT id, name FROM villager";
             Connection connection = dbConnector.getConnection();
             PreparedStatement preparedStatement = dbConnector.getConnection().prepareStatement(SQL);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                villagerEntityList.add(villagerEntityFactory(resultSet));
+                villagerEntityList.add(
+                        new VillagerEntity(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name")
+                        )
+                );
             }
 
             return villagerEntityList;
@@ -47,12 +53,15 @@ public class VillagerDAO{
 
     public VillagerEntity listDetailsPerId(Integer id) {
         try{
-            final String SQL = "SELECT name,surname, birthday, income, cpf, username from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
+            final String SQL = "SELECT * from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
             ResultSet resultSet = statement.executeQuery();
 
             if(!resultSet.next()){
-                return villagerEntityFactory(resultSet);
+                return new VillagerEntity(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name")
+                );
             }else {
                 return null;
             }
@@ -64,23 +73,29 @@ public class VillagerDAO{
     }
 
 
-    public List<VillagerEntity> listPerName(String name) {
+    public List<VillagerEntity> listByName(String name) {
+        List<VillagerEntity> villagerEntityList = new ArrayList<>();
        try{
-           final String SQL = "SELECT (id, name) from villager WHERE name LIKE ?";
+           final String SQL = "SELECT id, name from villager WHERE name LIKE ?";
            PreparedStatement statement = dbConnector
                    .getConnection()
                    .prepareStatement(SQL);
-           List<VillagerEntity> villagerEntityList = new ArrayList<>();
-           ResultSet resultSet = statement.executeQuery();
+           statement.setString(1, name + "%");
+
+           ResultSet resultSet = statement
+                   .executeQuery();
 
            while (resultSet.next()){
-                villagerEntityList.add(villagerEntityFactory(resultSet));
+                villagerEntityList
+                        .add(new VillagerEntity(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name")));
            }
            return villagerEntityList;
 
        }catch (SQLException e){
            e.printStackTrace();
-           return null;
+           return villagerEntityList;
        }
     }
 
@@ -111,21 +126,21 @@ public class VillagerDAO{
     }
 
 
-    public ResponseEntity<String> deletePerId() {
-        return null;
+    public ResponseEntity<String> deletePerId(Integer id) {
+        try {
+
+            final String SQL = "DELETE FROM villager where id = ?";
+            PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
+            statement.setInt(1, id);
+            statement.executeQuery();
+            return new ResponseEntity<String>("Morador deletado", HttpStatus.OK);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ResponseEntity<String>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
+        }
     }
 
-    private VillagerEntity villagerEntityFactory(ResultSet resultSet) throws SQLException{
-        return new VillagerEntity(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            resultSet.getString("surname"),
-                            resultSet.getDate("birthday"),
-                            resultSet.getBigDecimal("income"),
-                            resultSet.getString("cpf"),
-                            resultSet.getInt("appuser_id")
-                    );
 
-    }
 
 }

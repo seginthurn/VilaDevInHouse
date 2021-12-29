@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
+import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,20 @@ public class VillageRest {
         }
     }
 
+    @GetMapping("/villagers/search")
+    public ResponseEntity<Object> listVillagersByName(@RequestParam String name){
+        if(name == null){
+            return new ResponseEntity<>("ERRO: O nome não pode estar vazio!", HttpStatus.BAD_REQUEST);
+        }
+        try {
+            return new ResponseEntity<Object>(villageService.listAllByName(name), HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
 
     @GetMapping("/villager/{id}")
     public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
@@ -39,6 +54,11 @@ public class VillageRest {
     @PostMapping("/villager/new")
     public void addNew(VillagerDTO villagerDTO){
         villageService.addNew(villagerDTO);
+    }
+
+    @DeleteMapping("/villager/delete")
+    public void delete(@RequestParam Integer id){
+        villageService.deleteVillager(id);
     }
 
 }

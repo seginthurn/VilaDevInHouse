@@ -10,32 +10,32 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import java.net.http.HttpResponse;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class AppUserDAO implements DAO<AppUserEntity> {
+public class AppUserDAO{
 
     @Autowired
     DatabaseConnector dbConnector;
 
-    @Override
-    public ResponseEntity<String> addNew(AppUserEntity appUserEntity) {
+    public ResponseEntity<Object> addNew(String username, String password) {
         try {
-            final String SQL = "INSERT INTO app_user (username, password) values (?,?)";
+            final String SQL = "INSERT INTO app_user (username, password) VALUES (?,?)";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
-            statement.setString(1, appUserEntity.getUsername());
-            statement.setString(2, appUserEntity.getPassword());
+            statement.setString(1, username);
+            statement.setString(2, password);
             statement.executeQuery();
-            return new ResponseEntity<>("Usuário Criado", HttpStatus.CREATED);
-        } catch (Exception e) {
-            return null;
+            return new ResponseEntity<>(HttpStatus.OK);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return new ResponseEntity<Object>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
         }
     }
 
-
-    @Override
     public List<AppUserEntity> listAll() {
         try {
             List<AppUserEntity> appUserDTOList = new ArrayList<>();
@@ -65,7 +65,6 @@ public class AppUserDAO implements DAO<AppUserEntity> {
 
     }
 
-    @Override
     public AppUserEntity listDetailsPerId(Integer id) {
         try {
             final String SQL = "SELECT * FROM app_user WHERE id = ?";
@@ -91,39 +90,19 @@ public class AppUserDAO implements DAO<AppUserEntity> {
         }
     }
 
-    public List<AppUserEntity> listPerPage(Integer Page) {
-        return null;
-    }
 
-    @Override
-    public List<AppUserEntity> listPerName(String usernaname) {
-        return null;
-    }
-
-    @Override
-    //Not Used
-    public List<AppUserEntity> listPerMonth(String Month) {
-        return null;
-    }
-
-
-    @Override
-    public ResponseEntity<String> deletePerId() {
-        return null;
-    }
-
-    public ResponseEntity<Object> addNew(String username, String password) {
+    public void deletePerId(Integer id) {
         try {
-            final String SQL = "INSERT INTO app_user (username, password) VALUES (?,?)";
-            PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
-            statement.setString(1, username);
-            statement.setString(2, password);
+            final String SQL = "DELETE FROM app_user where id = ?";
+            PreparedStatement statement = dbConnector
+                    .getConnection()
+                    .prepareStatement(SQL);
+            statement.setInt(1, id);
             statement.executeQuery();
-            return new ResponseEntity<>(HttpStatus.OK);
+            System.out.println("Usuário Deletado");
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            return new ResponseEntity<Object>("Erro ao gerar usuário", HttpStatus.BAD_REQUEST);
+            System.out.println("Não deletou!");
         }
     }
 
@@ -139,7 +118,7 @@ public class AppUserDAO implements DAO<AppUserEntity> {
             if (resultSet.next() == true) {
                 return resultSet.getInt("id");
             } else {
-                System.out.println("Usuário não encontrado");
+                System.out.println("Algo saiu errado!");
                 return null;
             }
 
