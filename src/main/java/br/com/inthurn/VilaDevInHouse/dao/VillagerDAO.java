@@ -108,13 +108,18 @@ public class VillagerDAO{
 
     public List<VillagerEntity> listPerMonth(Object object) {
         List<VillagerEntity> villagerEntityList = new ArrayList<>();
-
+        Integer month;
+        if(object instanceof String){
+            month = monthDAO.getMonth(object);
+        }else {
+            month = (Integer) object;
+        }
         try {
             final String SQL="SELECT id, name FROM villager WHERE EXTRACT(MONTH FROM birthday) = ?";
             PreparedStatement statement = dbConnector
                     .getConnection()
                     .prepareStatement(SQL);
-            statement.setString(1, monthDAO.getMonth(object));
+            statement.setInt(1, month);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 villagerEntityList.add(

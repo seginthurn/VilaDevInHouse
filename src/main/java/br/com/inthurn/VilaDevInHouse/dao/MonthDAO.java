@@ -23,7 +23,7 @@ public class MonthDAO {
             PreparedStatement statement = dbconnector
                     .getConnection()
                     .prepareStatement(SQL);
-            statement.setString(1, month.toString());
+            statement.setString(1, month.toString().toLowerCase(Locale.ROOT));
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()){
                 return resultSet.getInt("id");
