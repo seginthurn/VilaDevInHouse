@@ -68,4 +68,10 @@ public class VillageRest {
         return new ResponseEntity<>(villagersList, HttpStatus.OK);
     }
 
+    @GetMapping("villager/search/age")
+    public ResponseEntity<Object> listByAge(@RequestParam Integer age){
+        return new ResponseEntity<>(villageService.listVillagerByAge(age), HttpStatus.OK);
+
+    }
+
 }
