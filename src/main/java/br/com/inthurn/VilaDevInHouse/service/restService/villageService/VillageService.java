@@ -45,17 +45,21 @@ public class VillageService {
         villagerDAO.addNew(villagerDTO);
     }
 
-    public List<VillagerDTO> listVillagersByMonth(Object month){
-        if(month == null){
-            return null;
+    public List<Object> listVillagersByMonth(Object month){
+        try {
+            Integer monthInteger = Integer.parseInt(month.toString());
+            return villagerDAO
+                    .listPerMonth(monthInteger)
+                    .stream()
+                    .map(this::convertToDTO)
+                    .collect(Collectors.toList());
+        }catch (Exception e){
+            return villagerDAO
+                    .listPerMonth(month)
+                    .stream()
+                    .map(this::convertToDTO)
+                    .collect(Collectors.toList());
         }
-
-        return villagerDAO
-                .listPerMonth(month)
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-
     }
 
 

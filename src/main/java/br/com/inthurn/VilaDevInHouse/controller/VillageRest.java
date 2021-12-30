@@ -63,8 +63,9 @@ public class VillageRest {
     }
 
     @GetMapping("/villager/search")
-    public List<VillagerDTO> listByMonth (@RequestParam Object month){
-        return villageService.listVillagersByMonth(month);
+    public ResponseEntity<Object> listByMonth (@RequestParam Object month){
+        List<Object> villagersList = villageService.listVillagersByMonth(month);
+        return new ResponseEntity<>(villagersList, HttpStatus.OK);
     }
 
 }
