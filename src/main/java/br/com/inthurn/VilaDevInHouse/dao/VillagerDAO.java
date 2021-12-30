@@ -53,7 +53,7 @@ public class VillagerDAO{
 
     public VillagerEntity listDetailsById(Integer id) {
         try{
-            final String SQL = "SELECT * from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
+            final String SQL = "SELECT name, surname, birthday, income, cpf from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
             PreparedStatement statement = dbConnector
                     .getConnection().
                     prepareStatement(SQL);
@@ -151,7 +151,6 @@ public class VillagerDAO{
 
             return new ResponseEntity("OK", HttpStatus.OK);
         }catch (SQLException e){
-            e.printStackTrace();
             return new ResponseEntity<String>("Deu ruim", HttpStatus.I_AM_A_TEAPOT);
         }
 
@@ -175,5 +174,30 @@ public class VillagerDAO{
     }
 
 
+    public List<VillagerEntity> listByAge(Integer age) {
+        List<VillagerEntity> villagerEntityList = new ArrayList<>();
+        try {
+            final String SQL = "SELECT id, name, birthday FROM villager WHERE (EXTRACT( YEAR FROM age(villager.birthday)) >= ?)";
+            PreparedStatement statement = dbConnector
+                    .getConnection()
+                    .prepareStatement(SQL);
+            statement.setInt(1, age);
+
+            ResultSet resultSet = statement
+                    .executeQuery();
+
+            while (resultSet.next()) {
+                villagerEntityList
+                        .add(new VillagerEntity(
+                                resultSet.getInt("id"),
+                                resultSet.getString("name")));
+            }
+            return villagerEntityList;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return villagerEntityList;
+        }
+    }
 
 }

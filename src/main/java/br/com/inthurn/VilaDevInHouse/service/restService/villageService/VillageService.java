@@ -3,6 +3,7 @@ package br.com.inthurn.VilaDevInHouse.service.restService.villageService;
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
+import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,6 +89,13 @@ public class VillageService {
     public void deleteVillager(Integer id){
         villagerDAO.deletePerId(id);
         appUserDAO.delete(id);
+    }
+
+    public List<VillagerDTO> listVillagerByAge(Integer age){
+        return villagerDAO.listByAge(age)
+                .stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
 

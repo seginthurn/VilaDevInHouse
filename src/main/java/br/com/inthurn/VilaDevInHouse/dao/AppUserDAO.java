@@ -136,5 +136,6 @@ public class AppUserDAO implements DAO<AppUserEntity>{
             return null;
         }
     }
+
 }
 

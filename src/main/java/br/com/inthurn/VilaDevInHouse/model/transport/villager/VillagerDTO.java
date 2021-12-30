@@ -1,6 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.model.transport.villager;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
+import br.com.inthurn.VilaDevInHouse.utilities.DateUtility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -23,34 +24,24 @@ public class VillagerDTO {
     private String name;
     private String surname;
     private Date birthday;
+    private String formattedBirthday;
     private BigDecimal income;
     private String cpf;
     private String email;
     private String password;
 
-    public VillagerDTO(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf, String email) {
-        this.name = name;
-        this.surname = surname;
-        this.birthday = birthday;
-        this.income = income;
-        this.cpf = cpf;
-        this.email = email;
-    }
-
+    //For system converts a VillagerEntity to VillagerDTO
     public VillagerDTO(Integer id, String name, String surname, Date birthday, BigDecimal income, String cpf) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.birthday = birthday;
+        this.formattedBirthday = DateUtility.dateFormatter(birthday);
         this.income = income;
         this.cpf = cpf;
     }
 
+    //For register a new Villager
     public VillagerDTO(String name, String surname, Date birthday, BigDecimal income, String cpf, String email, String password) {
         this.name = name;
         this.surname = surname;
