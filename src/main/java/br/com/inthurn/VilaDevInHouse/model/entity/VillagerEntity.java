@@ -32,4 +32,10 @@ public class VillagerEntity {
         this.id = id;
         this.name = name;
     }
+
+    public VillagerEntity(Integer id, String name, BigDecimal income) {
+        this.id = id;
+        this.name = name;
+        this.income = income;
+    }
 }

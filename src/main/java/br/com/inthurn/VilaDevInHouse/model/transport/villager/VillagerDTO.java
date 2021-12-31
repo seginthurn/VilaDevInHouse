@@ -1,19 +1,12 @@
 package br.com.inthurn.VilaDevInHouse.model.transport.villager;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.utilities.DateUtility;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.swing.text.View;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.Optional;
 
 @Data
 @AllArgsConstructor
@@ -29,7 +22,6 @@ public class VillagerDTO {
     private String cpf;
     private String email;
     private String password;
-
 
     //For system converts a VillagerEntity to VillagerDTO
     public VillagerDTO(Integer id, String name, String surname, Date birthday, BigDecimal income, String cpf) {

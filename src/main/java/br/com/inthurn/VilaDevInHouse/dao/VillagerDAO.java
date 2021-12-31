@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Repository
 public class VillagerDAO{
@@ -197,6 +199,36 @@ public class VillagerDAO{
         } catch (SQLException e) {
             e.printStackTrace();
             return villagerEntityList;
+        }
+    }
+
+    public BigDecimal villagerCost() throws SQLException{
+        final String SQL = "SELECT SUM(income) from villager";
+        Statement statement = dbConnector.getConnection().createStatement();
+        statement.executeQuery(SQL);
+        ResultSet resultSet = statement.getResultSet();
+        if (resultSet.next()){
+            return resultSet.getBigDecimal("sum");
+        }
+        return null;
+    }
+
+    public VillagerEntity villagerWithHighestIncome(){
+        try {
+            final String SQL = "SELECT id, TRIM(CONCAT(name, ' ', surname)) name, income FROM villager ORDER BY income DESC LIMIT 1";
+            Statement statement = dbConnector.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL);
+            if(resultSet.next()){
+                return new VillagerEntity(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getBigDecimal("income")
+                );
+            }
+            return null;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
         }
     }
 
