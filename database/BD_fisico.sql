@@ -31,7 +31,7 @@ CREATE TABLE villager(
 INSERT INTO role (role) VALUES ('user'), ('administrator');
 
 INSERT INTO app_user (username, password, role_id) 
-VALUES ('administrator@viladevinhouse.com', 'Village!Admin078!', 2);
+VALUES ('administrator@viladevinhouse.com', 'admin', 2);
 
 INSERT INTO villager (name, surname, birthday, income, cpf, appuser_id)
 VALUES ('Jhon', 'Doe', '1989-12-31', 18000.00, '987.654.321-00', 1);
