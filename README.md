@@ -101,6 +101,9 @@ Ecluir morador
 ```
 DELETE: http://localhost:8080/villager?id=ID DO USUÁRIO
 ```
-
+Gerar o relatório financeiro da vila:
+```
+GET: http://localhost:8080/api/village/report
+```
 
 [⬆ Voltar ao topo](#VilaDevInHouse)<br>
