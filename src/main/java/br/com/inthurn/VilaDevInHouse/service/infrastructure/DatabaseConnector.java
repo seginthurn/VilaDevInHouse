@@ -1,28 +1,31 @@
 package br.com.inthurn.VilaDevInHouse.service.infrastructure;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-
-import java.beans.BeanProperty;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@Service
+@Component
 public class DatabaseConnector {
 
-    @Value("${spring.datasource.url}")
-    private String url;
-    @Value("${spring.datasource.username}")
-    private String username;
-    @Value("${spring.datasource.password}")
-    private String password;
+    private final String url;
+    private final String username;
+    private final String password;
+
+    @Autowired
+    public DatabaseConnector(@Value("${spring.datasource.url}") String url,
+                             @Value("${spring.datasource.username}")String username,
+                             @Value("${spring.datasource.password}")String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
 
     public Connection getConnection(){
         try {
-            System.out.println("LOG: Banco Conectado");
             return DriverManager.getConnection(url, username, password);
         }catch (SQLException e) {
             e.printStackTrace();

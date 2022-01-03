@@ -4,7 +4,6 @@ import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.restService.report.ReportService;
 import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +15,13 @@ import java.util.List;
 @RequestMapping("/api")
 public class VillageRest {
 
-    @Autowired
-    VillageService villageService;
+    private  final VillageService villageService;
+    private final ReportService reportService;
 
-    @Autowired
-    ReportService reportService;
+    public VillageRest(VillageService villageService, ReportService reportService) {
+        this.villageService = villageService;
+        this.reportService = reportService;
+    }
 
     @GetMapping("/villagers")
     public ResponseEntity<Object> listAllVillagers(){
@@ -53,19 +54,28 @@ public class VillageRest {
         try {
             return new ResponseEntity<Object>(villageService.listDetailsById(id), HttpStatus.OK);
         }catch (Exception e){
-            e.printStackTrace();
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping("/villager/new")
-    public void addNew(VillagerDTO villagerDTO){
-        villageService.addNew(villagerDTO);
+    public ResponseEntity<String> addNew(@RequestBody VillagerDTO villagerDTO){
+        try {
+            villageService.addNew(villagerDTO);
+            return ResponseEntity.ok("Usuário cadastrado!");
+        }catch (Exception e){
+            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @DeleteMapping("/villager/delete")
-    public void delete(@RequestParam Integer id){
-        villageService.deleteVillager(id);
+    public ResponseEntity<String> delete(@RequestParam Integer id){
+        try {
+            villageService.deleteVillager(id);
+            return ResponseEntity.ok("Usuário deletado");
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/villager/search")
