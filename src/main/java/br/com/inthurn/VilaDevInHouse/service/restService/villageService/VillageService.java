@@ -3,25 +3,23 @@ package br.com.inthurn.VilaDevInHouse.service.restService.villageService;
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class VillageService {
 
-    @Autowired
-    VillagerDAO villagerDAO;
+    private final VillagerDAO villagerDAO;
+    private final AppUserDAO appUserDAO;
 
-    @Autowired
-    AppUserDAO appUserDAO;
+    public VillageService(VillagerDAO villagerDAO, AppUserDAO appUserDAO) {
+        this.villagerDAO = villagerDAO;
+        this.appUserDAO = appUserDAO;
+    }
 
     public List<VillagerDTO> listAll(){
         return villagerDAO
@@ -39,12 +37,17 @@ public class VillageService {
                 .collect(Collectors.toList());
     }
 
-    public VillagerDTO listDetailsById(Integer id){
+    public VillagerDTO listDetailsById(Integer id) throws SQLException {
         return convertToDTO(villagerDAO.listDetailsById(id));
     }
 
     public void addNew(VillagerDTO villagerDTO){
-        villagerDAO.addNew(villagerDTO);
+       try {
+           villagerDAO.addNew(villagerDTO);
+       }catch (Exception e){
+           System.out.println(e.getMessage());
+       }
+
     }
 
     public List<Object> listVillagersByMonth(Object month){
@@ -98,7 +101,5 @@ public class VillageService {
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
-
-
 
 }

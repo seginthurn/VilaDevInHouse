@@ -1,9 +1,9 @@
 package br.com.inthurn.VilaDevInHouse.dao;
 
+import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
@@ -12,20 +12,19 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 @Repository
 public class VillagerDAO{
 
-    @Autowired
-    DatabaseConnector dbConnector;
+    private final DatabaseConnector dbConnector;
+    private final AppUserDAO appUserDAO;
+    private final MonthDAO monthDAO;
 
-    @Autowired
-    AppUserDAO appUserDAO;
-
-    @Autowired
-    MonthDAO monthDAO;
-
+    public VillagerDAO(DatabaseConnector dbConnector, AppUserDAO appUserDAO, MonthDAO monthDAO) {
+        this.dbConnector = dbConnector;
+        this.appUserDAO = appUserDAO;
+        this.monthDAO = monthDAO;
+    }
 
     public List<VillagerEntity> listAll(){
         try {
@@ -53,33 +52,26 @@ public class VillagerDAO{
     }
 
 
-    public VillagerEntity listDetailsById(Integer id) {
-        try{
-            final String SQL = "SELECT name, surname, birthday, income, cpf from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
-            PreparedStatement statement = dbConnector
-                    .getConnection().
-                    prepareStatement(SQL);
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
+    public VillagerEntity listDetailsById(Integer id) throws SQLException {
+        final String SQL = "SELECT name, surname, birthday, income, cpf from villager LEFT JOIN app_user ON (villager.appuser_id = app_user.id) WHERE villager.id = ?";
+        PreparedStatement statement = dbConnector
+                .getConnection().
+                prepareStatement(SQL);
+        statement.setInt(1, id);
+        ResultSet resultSet = statement.executeQuery();
 
-            if(resultSet.next()){
-                return new VillagerEntity(
-                        resultSet.getString("name"),
-                        resultSet.getString("surname"),
-                        resultSet.getDate("birthday"),
-                        resultSet.getBigDecimal("income"),
-                        resultSet.getString("cpf")
-                );
-            }else {
-                return null;
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
+        if (resultSet.next()) {
+            return new VillagerEntity(
+                    resultSet.getString("name"),
+                    resultSet.getString("surname"),
+                    resultSet.getDate("birthday"),
+                    resultSet.getBigDecimal("income"),
+                    resultSet.getString("cpf")
+            );
+        } else {
             return null;
         }
     }
-
 
     public List<VillagerEntity> listByName(String name) {
         List<VillagerEntity> villagerEntityList = new ArrayList<>();
@@ -141,7 +133,8 @@ public class VillagerDAO{
     public ResponseEntity<String> addNew(VillagerDTO villagerDTO) {
         try {
             final String SQL = "INSERT INTO villager (name, surname, birthday, income, cpf, appuser_id) values (?,?,?,?,?,?)";
-            appUserDAO.addNew(villagerDTO.getEmail(), villagerDTO.getPassword());
+            AppUserEntity appUser = new AppUserEntity(villagerDTO.getEmail(), villagerDTO.getPassword());
+            appUserDAO.addNew(appUser);
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
             statement.setString(1, villagerDTO.getName());
             statement.setString(2, villagerDTO.getSurname());

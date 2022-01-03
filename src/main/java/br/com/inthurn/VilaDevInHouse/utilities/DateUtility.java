@@ -14,8 +14,7 @@ public class DateUtility {
 
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern, new Locale("pt", "BR"));
-        String date = simpleDateFormat.format(convertToJavaDate(sqlDate));
-        return date;
+        return simpleDateFormat.format(convertToJavaDate(sqlDate));
 
     }
 

@@ -11,13 +11,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class VillageReport {
 
-    @Value("${village.budget}")
-    private BigDecimal diferencaEntreOrcamentoEGasto;
     private BigDecimal orcamento;
+    private BigDecimal diferencaEntreOrcamentoEGasto;
     private BigDecimal gastoTotal;
     private VillagerDTO habitanteComMaiorCusto;
 
-    public VillageReport(BigDecimal orcamento, BigDecimal gastoTotal, VillagerDTO habitanteComMaiorCusto) {
+    public VillageReport(@Value("${village.budget}") BigDecimal orcamento, BigDecimal gastoTotal, VillagerDTO habitanteComMaiorCusto) {
         this.diferencaEntreOrcamentoEGasto = orcamento.subtract(gastoTotal);
         this.orcamento = orcamento;
         this.gastoTotal = gastoTotal;

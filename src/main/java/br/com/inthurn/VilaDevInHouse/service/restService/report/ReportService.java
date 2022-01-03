@@ -3,7 +3,6 @@ package br.com.inthurn.VilaDevInHouse.service.restService.report;
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
 import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +12,13 @@ import java.sql.SQLException;
 @Service
 public class ReportService {
 
-    @Autowired
-    VillagerDAO villagerDAO;
+    private final VillagerDAO villagerDAO;
+    private final VillageService villageService;
 
-    @Autowired
-    VillageService villageService;
+    public ReportService(VillagerDAO villagerDAO, VillageService villageService) {
+        this.villagerDAO = villagerDAO;
+        this.villageService = villageService;
+    }
 
     @Value("${village.budget}")
     private BigDecimal villageBudget;

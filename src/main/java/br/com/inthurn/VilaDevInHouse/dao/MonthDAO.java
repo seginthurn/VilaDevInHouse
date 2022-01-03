@@ -1,21 +1,21 @@
 package br.com.inthurn.VilaDevInHouse.dao;
 
-import br.com.inthurn.VilaDevInHouse.interfaces.DAO;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
 import java.util.Locale;
 
 
 @Repository
 public class MonthDAO {
 
-    @Autowired
-    DatabaseConnector dbconnector;
+    private final DatabaseConnector dbconnector;
+
+    public MonthDAO(DatabaseConnector dbconnector) {
+        this.dbconnector = dbconnector;
+    }
 
     public Integer getMonth(Object month){
         try {

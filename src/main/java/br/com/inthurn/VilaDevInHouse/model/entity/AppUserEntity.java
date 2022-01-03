@@ -18,4 +18,10 @@ public class AppUserEntity {
         this.username = username;
         this.password = password;
     }
+
+    public AppUserEntity(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 }

@@ -2,31 +2,37 @@ package br.com.inthurn.VilaDevInHouse.dao;
 
 import br.com.inthurn.VilaDevInHouse.interfaces.DAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import br.com.inthurn.VilaDevInHouse.service.infrastructure.security.encoder.Encryptor;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.filter.OncePerRequestFilter;
 
-import java.net.http.HttpResponse;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class AppUserDAO implements DAO<AppUserEntity>{
 
-    @Autowired
-    DatabaseConnector dbConnector;
+    private DatabaseConnector dbConnector;
+    private Encryptor encryptor;
 
-    public Boolean addNew(String username, String password) {
+    public AppUserDAO(DatabaseConnector dbConnector, Encryptor encryptor) {
+        this.dbConnector = dbConnector;
+        this.encryptor = encryptor;
+    }
+
+    @Override
+    public Boolean addNew(AppUserEntity appUserEntity) {
         try {
+            appUserEntity.setPassword(encryptor.encode(appUserEntity.getPassword()));
             final String SQL = "INSERT INTO app_user (username, password) VALUES (?,?)";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
-            statement.setString(1, username);
-            statement.setString(2, password);
+            statement.setString(1, appUserEntity.getUsername());
+            statement.setString(2, appUserEntity.getPassword());
             statement.executeQuery();
             return true;
 
@@ -92,11 +98,6 @@ public class AppUserDAO implements DAO<AppUserEntity>{
     }
 
     @Override
-    public Boolean addNew(AppUserEntity appUserEntity) {
-        return null;
-    }
-
-    @Override
     public Boolean delete(Integer id){
         try {
             if(listDetailsById(id) == null){
@@ -135,6 +136,27 @@ public class AppUserDAO implements DAO<AppUserEntity>{
             e.printStackTrace();
             return null;
         }
+    }
+
+    public Optional<AppUserEntity> findByLogin (String login){
+        try {
+            final String SQL = "SELECT * from app_user where (username = ?)";
+            PreparedStatement preparedStatement = dbConnector.getConnection().prepareStatement(SQL);
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(
+                        new AppUserEntity(
+                                resultSet.getInt("id"),
+                                resultSet.getString("username"),
+                                resultSet.getString("password")
+                        )
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

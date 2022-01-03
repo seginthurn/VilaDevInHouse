@@ -2,46 +2,34 @@ package br.com.inthurn.VilaDevInHouse.service.restService.appservices;
 
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.appuser.AppUserDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
-public class AppUserService {
+public class AppUserService implements UserDetailsService {
 
-    @Autowired
-    AppUserDAO appUserDAO;
+    private final AppUserDAO appUserDAO;
 
 
-    public List<AppUserDTO> listAllUsers() {
-        return appUserDAO
-                .listAll()
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public AppUserService(AppUserDAO appUserDAO) {
+        this.appUserDAO = appUserDAO;
     }
 
-    public AppUserDTO listUserById(Integer id){
-        return this.convertToDTO(appUserDAO.listDetailsById(id));
-    }
 
-    public static AppUserEntity convertToEntity(AppUserDTO appUserDTO){
-        return new AppUserEntity(
-                appUserDTO.getUsername(),
-                appUserDTO.getPassword()
-        );
-    }
-    public AppUserDTO convertToDTO(AppUserEntity appUserEntity){
-        return new AppUserDTO(
-                appUserEntity.getUsername(),
-                appUserEntity.getPassword()
-        );
-    }
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<AppUserEntity> user = appUserDAO.findByLogin(username);
 
-    public void deleteById(Integer id) {
-        appUserDAO.delete(id);
+        if(user.isEmpty()){
+            throw new UsernameNotFoundException(username + " não foi localizado");
+        }
+
+        return new SpringSecurityUser(user);
     }
+    
 }
