@@ -4,24 +4,76 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
+
+@Entity
+@Table(name = "app_user")
 public class AppUserEntity {
 
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String password;
-    private Integer role_id;
 
-    public AppUserEntity(String username, String password) {
-        this.username = username;
-        this.password = password;
+    @OneToMany
+    private List<RoleEntity> roles;
+
+    public AppUserEntity() {
     }
 
-    public AppUserEntity(Integer id, String username, String password) {
+    public AppUserEntity(Long id, String username, String password, List<RoleEntity> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.roles = roles;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AppUserEntity that = (AppUserEntity) o;
+        return Objects.equals(id, that.id) && Objects.equals(username, that.username) && Objects.equals(password, that.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password);
     }
 }
