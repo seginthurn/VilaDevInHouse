@@ -1,9 +1,5 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -23,12 +19,12 @@ public class VillagerEntity {
     private String cpf;
 
     @OneToOne
-    private AppUserEntity appUser;
+    private UserEntity appUser;
 
     public VillagerEntity() {
     }
 
-    public VillagerEntity(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, AppUserEntity appUser) {
+    public VillagerEntity(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, UserEntity appUser) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -86,11 +82,11 @@ public class VillagerEntity {
         this.cpf = cpf;
     }
 
-    public AppUserEntity getAppUser() {
+    public UserEntity getAppUser() {
         return appUser;
     }
 
-    public void setAppUser(AppUserEntity appUser) {
+    public void setAppUser(UserEntity appUser) {
         this.appUser = appUser;
     }
 
