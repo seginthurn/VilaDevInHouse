@@ -1,4 +1,4 @@
-package br.com.inthurn.VilaDevInHouse.utilities;
+package br.com.inthurn.VilaDevInHouse.service.utilities;
 
 import java.text.DecimalFormat;
 

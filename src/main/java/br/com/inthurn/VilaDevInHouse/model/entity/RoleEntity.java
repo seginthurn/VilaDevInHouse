@@ -3,8 +3,10 @@ package br.com.inthurn.VilaDevInHouse.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.User;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,15 +14,25 @@ import java.util.Objects;
 public class RoleEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String role;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<UserEntity> users;
+
 
     public RoleEntity() {
     }
 
     public RoleEntity(Long id, String role) {
         this.id = id;
+        this.role = role;
+    }
+
+    public RoleEntity(String role) {
         this.role = role;
     }
 
