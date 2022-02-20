@@ -1,4 +1,4 @@
-package br.com.inthurn.VilaDevInHouse.service.restService.villageService;
+package br.com.inthurn.VilaDevInHouse.service.restservice.villageService;
 
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;

@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.dao;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
@@ -133,7 +133,7 @@ public class VillagerDAO{
     public ResponseEntity<String> addNew(VillagerDTO villagerDTO) {
         try {
             final String SQL = "INSERT INTO villager (name, surname, birthday, income, cpf, appuser_id) values (?,?,?,?,?,?)";
-            AppUserEntity appUser = new AppUserEntity(villagerDTO.getEmail(), villagerDTO.getPassword());
+            UserEntity appUser = new UserEntity(villagerDTO.getEmail(), villagerDTO.getPassword());
             appUserDAO.addNew(appUser);
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
             statement.setString(1, villagerDTO.getName());

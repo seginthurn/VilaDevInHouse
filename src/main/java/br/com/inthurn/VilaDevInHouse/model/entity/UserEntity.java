@@ -1,16 +1,12 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 @Table(name = "app_user")
-public class AppUserEntity {
+public class UserEntity {
 
 
     @Id
@@ -22,10 +18,10 @@ public class AppUserEntity {
     @OneToMany
     private List<RoleEntity> roles;
 
-    public AppUserEntity() {
+    public UserEntity() {
     }
 
-    public AppUserEntity(Long id, String username, String password, List<RoleEntity> roles) {
+    public UserEntity(Long id, String username, String password, List<RoleEntity> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -68,7 +64,7 @@ public class AppUserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AppUserEntity that = (AppUserEntity) o;
+        UserEntity that = (UserEntity) o;
         return Objects.equals(id, that.id) && Objects.equals(username, that.username) && Objects.equals(password, that.password);
     }
 

@@ -2,8 +2,8 @@ package br.com.inthurn.VilaDevInHouse.controller;
 
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
 import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
-import br.com.inthurn.VilaDevInHouse.service.restService.report.ReportService;
-import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.report.ReportService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

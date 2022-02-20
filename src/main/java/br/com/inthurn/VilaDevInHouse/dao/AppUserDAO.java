@@ -1,7 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.dao;
 
 import br.com.inthurn.VilaDevInHouse.interfaces.DAO;
-import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.DatabaseConnector;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.security.encoder.Encryptor;
 import org.springframework.stereotype.Repository;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class AppUserDAO implements DAO<AppUserEntity>{
+public class AppUserDAO implements DAO<UserEntity>{
 
     private DatabaseConnector dbConnector;
     private Encryptor encryptor;
@@ -26,13 +26,13 @@ public class AppUserDAO implements DAO<AppUserEntity>{
     }
 
     @Override
-    public Boolean addNew(AppUserEntity appUserEntity) {
+    public Boolean addNew(UserEntity userEntity) {
         try {
-            appUserEntity.setPassword(encryptor.encode(appUserEntity.getPassword()));
+            userEntity.setPassword(encryptor.encode(userEntity.getPassword()));
             final String SQL = "INSERT INTO app_user (username, password) VALUES (?,?)";
             PreparedStatement statement = dbConnector.getConnection().prepareStatement(SQL);
-            statement.setString(1, appUserEntity.getUsername());
-            statement.setString(2, appUserEntity.getPassword());
+            statement.setString(1, userEntity.getUsername());
+            statement.setString(2, userEntity.getPassword());
             statement.executeQuery();
             return true;
 
@@ -42,9 +42,9 @@ public class AppUserDAO implements DAO<AppUserEntity>{
     }
 
     @Override
-    public List<AppUserEntity> listAll() {
+    public List<UserEntity> listAll() {
         try {
-            List<AppUserEntity> appUserDTOList = new ArrayList<>();
+            List<UserEntity> appUserDTOList = new ArrayList<>();
             final String SQL = "SELECT * FROM app_user";
             Connection connection = dbConnector.getConnection();
             PreparedStatement preparedStatement = dbConnector.getConnection().prepareStatement(SQL);
@@ -52,7 +52,7 @@ public class AppUserDAO implements DAO<AppUserEntity>{
 
             while (resultSet.next()) {
                 appUserDTOList.add(
-                        new AppUserEntity(
+                        new UserEntity(
                                 resultSet.getInt("id"),
                                 resultSet.getString("username"),
                                 resultSet.getString("password"),
@@ -72,7 +72,7 @@ public class AppUserDAO implements DAO<AppUserEntity>{
     }
 
     @Override
-    public AppUserEntity listDetailsById(Integer id) {
+    public UserEntity listDetailsById(Integer id) {
         try {
             final String SQL = "SELECT * FROM app_user WHERE id = ?";
             PreparedStatement statement = dbConnector
@@ -82,7 +82,7 @@ public class AppUserDAO implements DAO<AppUserEntity>{
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next() == true) {
-                return new AppUserEntity(resultSet.getInt("id"),
+                return new UserEntity(resultSet.getInt("id"),
                         resultSet.getString("username"),
                         resultSet.getString("password"),
                         resultSet.getInt("role_id"));
@@ -138,7 +138,7 @@ public class AppUserDAO implements DAO<AppUserEntity>{
         }
     }
 
-    public Optional<AppUserEntity> findByLogin (String login){
+    public Optional<UserEntity> findByLogin (String login){
         try {
             final String SQL = "SELECT * from app_user where (username = ?)";
             PreparedStatement preparedStatement = dbConnector.getConnection().prepareStatement(SQL);
@@ -146,7 +146,7 @@ public class AppUserDAO implements DAO<AppUserEntity>{
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return Optional.of(
-                        new AppUserEntity(
+                        new UserEntity(
                                 resultSet.getInt("id"),
                                 resultSet.getString("username"),
                                 resultSet.getString("password")

@@ -3,7 +3,7 @@ package br.com.inthurn.VilaDevInHouse.config.security;
 import br.com.inthurn.VilaDevInHouse.security.AuthenticationFilter;
 import br.com.inthurn.VilaDevInHouse.security.ValidationFilter;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.security.encoder.Encryptor;
-import br.com.inthurn.VilaDevInHouse.service.restService.appservices.AppUserService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.AppUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

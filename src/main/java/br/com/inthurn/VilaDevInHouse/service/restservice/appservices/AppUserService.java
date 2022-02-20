@@ -1,7 +1,7 @@
-package br.com.inthurn.VilaDevInHouse.service.restService.appservices;
+package br.com.inthurn.VilaDevInHouse.service.restservice.appservices;
 
 import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
-import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +23,7 @@ public class AppUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<AppUserEntity> user = appUserDAO.findByLogin(username);
+        Optional<UserEntity> user = appUserDAO.findByLogin(username);
 
         if(user.isEmpty()){
             throw new UsernameNotFoundException(username + " não foi localizado");
