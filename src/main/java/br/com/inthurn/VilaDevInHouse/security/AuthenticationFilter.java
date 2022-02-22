@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.security;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -33,7 +33,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
-            AppUserEntity user = new ObjectMapper().readValue(request.getInputStream(), AppUserEntity.class);
+            UserEntity user = new ObjectMapper().readValue(request.getInputStream(), UserEntity.class);
 
             return authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>()));

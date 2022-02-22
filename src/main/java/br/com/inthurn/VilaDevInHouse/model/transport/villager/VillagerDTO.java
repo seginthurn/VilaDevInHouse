@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.transport.villager;
 
-import br.com.inthurn.VilaDevInHouse.utilities.DateUtility;
+import br.com.inthurn.VilaDevInHouse.service.utilities.DateUtility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
