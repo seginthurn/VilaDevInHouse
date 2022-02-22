@@ -2,8 +2,9 @@ package br.com.inthurn.VilaDevInHouse.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "villager")
@@ -16,10 +17,15 @@ public class VillagerEntity {
     private String surname;
     private Date birthday;
     private BigDecimal income;
+
+    @Column(nullable = false, unique = true)
     private String cpf;
 
+    @Column(nullable = false, unique = true)
+    private UUID externalId;
+
     @OneToOne
-    private UserEntity appUser;
+    private UserEntity user;
 
     public VillagerEntity() {
     }
@@ -31,7 +37,15 @@ public class VillagerEntity {
         this.birthday = birthday;
         this.income = income;
         this.cpf = cpf;
-        this.appUser = appUser;
+    }
+
+    public VillagerEntity(String name, String surname, Date birthday, BigDecimal income, String cpf, UUID externalId) {
+        this.name = name;
+        this.surname = surname;
+        this.birthday = birthday;
+        this.income = income;
+        this.cpf = cpf;
+        this.externalId = externalId;
     }
 
     public Long getId() {
@@ -82,24 +96,16 @@ public class VillagerEntity {
         this.cpf = cpf;
     }
 
-    public UserEntity getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(UserEntity appUser) {
-        this.appUser = appUser;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         VillagerEntity that = (VillagerEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(surname, that.surname) && Objects.equals(birthday, that.birthday) && Objects.equals(income, that.income) && Objects.equals(cpf, that.cpf) && Objects.equals(appUser, that.appUser);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(surname, that.surname) && Objects.equals(birthday, that.birthday) && Objects.equals(income, that.income) && Objects.equals(cpf, that.cpf) && Objects.equals(externalId, that.externalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, birthday, income, cpf, appUser);
+        return Objects.hash(id, name, surname, birthday, income, cpf, externalId);
     }
 }
