@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e3a4839-81c5-45e1-b1b9-dd6fd740da39" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -17,6 +18,33 @@
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/modelservice/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/modelservice/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGenerator.class" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/interfaces/LocalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/interfaces/LocalEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/role/RoleDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/user/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/modelservice/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/modelservice/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/UserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/modelservice/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDGeneratorTest.class" beforeDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +125,7 @@
       <recent name="br.com.inthurn.VilaDevInHouse" />
     </key>
   </component>
+<<<<<<< Updated upstream
   <component name="RunManager" selected="Application.VilaDevInHouseApplication">
     <configuration name="VilaDevInHouseApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>
@@ -110,6 +139,10 @@
         <env name="RABBITMQ_PASSWORD" value="admin" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
+=======
+  <component name="RunManager" selected="JUnit.UUIDManagerTest">
+    <configuration name="DateUtilityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+>>>>>>> Stashed changes
       <module name="VilaDevInHouse" />
       <extension name="coverage">
         <pattern>
@@ -137,7 +170,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< Updated upstream
     <configuration name="DateUtilityTest.SouldReturnFormattedDateWhenDateIsGiven" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="UUIDManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+>>>>>>> Stashed changes
       <module name="VilaDevInHouse" />
       <extension name="coverage">
         <pattern>
@@ -146,14 +183,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
+<<<<<<< Updated upstream
       <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.DateUtilityTest" />
       <option name="METHOD_NAME" value="SouldReturnFormattedDateWhenDateIsGiven" />
       <option name="TEST_OBJECT" value="method" />
+=======
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+>>>>>>> Stashed changes
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UUIDGeneratorTest.ShouldReturnStringUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UUIDManagerTest.ShouldReturnStringUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VilaDevInHouse" />
       <extension name="coverage">
         <pattern>
@@ -162,14 +204,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDGeneratorTest" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManagerTest" />
       <option name="METHOD_NAME" value="ShouldReturnStringUUID" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UUIDGeneratorTest.ShouldReturnUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UUIDManagerTest.ShouldReturnUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VilaDevInHouse" />
       <extension name="coverage">
         <pattern>
@@ -178,7 +220,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDGeneratorTest" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManagerTest" />
       <option name="METHOD_NAME" value="ShouldReturnUUID" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -207,6 +249,7 @@
       <item itemvalue="Application.VilaDevInHouseApplication" />
       <item itemvalue="JUnit.DateUtilityTest" />
       <item itemvalue="JUnit.DateUtilityTest.SouldReturnFormattedDateWhenDateIsGiven" />
+<<<<<<< Updated upstream
       <item itemvalue="JUnit.UUIDGeneratorTest.ShouldReturnUUID" />
       <item itemvalue="JUnit.UUIDGeneratorTest.ShouldReturnStringUUID" />
     </list>
@@ -215,6 +258,17 @@
         <item itemvalue="Application.VilaDevInHouseApplication" />
         <item itemvalue="JUnit.UUIDGeneratorTest.ShouldReturnStringUUID" />
         <item itemvalue="JUnit.UUIDGeneratorTest.ShouldReturnUUID" />
+=======
+      <item itemvalue="JUnit.UUIDManagerTest.ShouldReturnUUID" />
+      <item itemvalue="JUnit.UUIDManagerTest.ShouldReturnStringUUID" />
+      <item itemvalue="JUnit.UUIDManagerTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UUIDManagerTest" />
+        <item itemvalue="JUnit.UUIDManagerTest.ShouldReturnStringUUID" />
+        <item itemvalue="JUnit.UUIDManagerTest.ShouldReturnUUID" />
+>>>>>>> Stashed changes
         <item itemvalue="JUnit.DateUtilityTest.SouldReturnFormattedDateWhenDateIsGiven" />
         <item itemvalue="JUnit.DateUtilityTest" />
       </list>
