@@ -1,7 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
 import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
-import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,7 +23,7 @@ public class UserEntity{
     private String password;
 
     @Column(unique = true, nullable = false)
-    private UUID external_id;
+    private UUID externalId;
 
     @ManyToMany
     private List<RoleEntity> roles;
@@ -36,14 +35,14 @@ public class UserEntity{
         this.id = id;
         this.username = username;
         this.password = password;
-        this.external_id = external_id;
+        this.externalId = external_id;
         this.roles = roles;
     }
 
     public UserEntity(String username, String password, UUID external_id, List<RoleEntity> roles) {
         this.username = username;
         this.password = password;
-        this.external_id = external_id;
+        this.externalId = external_id;
         this.roles = roles;
     }
 
@@ -79,12 +78,12 @@ public class UserEntity{
         this.roles = roles;
     }
 
-    public UUID getExternal_id() {
-        return external_id;
+    public UUID getExternalId() {
+        return externalId;
     }
 
-    public void setExternal_id(UUID external_id) {
-        this.external_id = external_id;
+    public void setExternalId(UUID externalId) {
+        this.externalId = externalId;
     }
 
     @Override
@@ -101,6 +100,6 @@ public class UserEntity{
     }
 
     public UserDTO convertToDTO(){
-        return new UserDTO(this.username, this.password, this.external_id, this.roles);
+        return new UserDTO(this.username, this.password, this.externalId, this.roles);
     }
 }
