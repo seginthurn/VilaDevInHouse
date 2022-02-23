@@ -3,6 +3,7 @@ package br.com.inthurn.VilaDevInHouse.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "villager")
@@ -16,22 +17,24 @@ public class Villager {
     private String surname;
     private Date birthday;
     private BigDecimal income;
+    private UUID externalId;
 
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     public Villager() {
     }
 
-    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, User user) {
+    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, UUID externalId, String cpf, User user) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
         this.income = income;
+        this.externalId = externalId;
         this.cpf = cpf;
         this.user = user;
     }
@@ -50,6 +53,14 @@ public class Villager {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public UUID getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(UUID externalId) {
+        this.externalId = externalId;
     }
 
     public String getSurname() {
