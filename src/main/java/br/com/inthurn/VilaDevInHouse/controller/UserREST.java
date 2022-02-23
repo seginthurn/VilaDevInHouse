@@ -1,11 +1,9 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
 import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +31,7 @@ public class UserREST {
     }
 
     @PostMapping
-    public ResponseEntity<String> save(UserDTO userDTO){
+    public ResponseEntity<String> save(@RequestBody UserDTO userDTO){
         System.out.println(userDTO);
         if(userService.save(userDTO)){
             return new ResponseEntity<>("Usuãrio Salvo com sucesso!", HttpStatus.OK);

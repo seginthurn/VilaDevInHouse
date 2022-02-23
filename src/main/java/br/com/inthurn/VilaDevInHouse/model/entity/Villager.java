@@ -22,7 +22,7 @@ public class Villager {
     @Column(nullable = false, unique = true)
     private String cpf;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     public Villager() {

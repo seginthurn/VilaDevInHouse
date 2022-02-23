@@ -1,9 +1,10 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
-import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
-import br.com.inthurn.VilaDevInHouse.service.restService.report.ReportService;
-import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
+
+import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
+import br.com.inthurn.VilaDevInHouse.service.restservice.report.ReportService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class VillageRest {
+public class VillageREST {
 
     private  final VillageService villageService;
     private final ReportService reportService;
 
-    public VillageRest(VillageService villageService, ReportService reportService) {
+    public VillageREST(VillageService villageService, ReportService reportService) {
         this.villageService = villageService;
         this.reportService = reportService;
     }
@@ -49,46 +50,46 @@ public class VillageRest {
     }
 
 
-    @GetMapping("/villager/{id}")
-    public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
-        try {
-            return new ResponseEntity<Object>(villageService.listDetailsById(id), HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @GetMapping("/villager/{id}")
+//    public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
+//        try {
+//            return new ResponseEntity<Object>(villageService.listDetailsById(id), HttpStatus.OK);
+//        }catch (Exception e){
+//            return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     @PostMapping("/villager/new")
     public ResponseEntity<String> addNew(@RequestBody VillagerDTO villagerDTO){
         try {
-            villageService.addNew(villagerDTO);
+            villageService.save(villagerDTO);
             return ResponseEntity.ok("Usuário cadastrado!");
         }catch (Exception e){
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @DeleteMapping("/villager/delete")
-    public ResponseEntity<String> delete(@RequestParam Integer id){
-        try {
-            villageService.deleteVillager(id);
-            return ResponseEntity.ok("Usuário deletado");
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
+//    @DeleteMapping("/villager/delete")
+//    public ResponseEntity<String> delete(@RequestParam Integer id){
+//        try {
+//            villageService.deleteVillager(id);
+//            return ResponseEntity.ok("Usuário deletado");
+//        }catch (Exception e){
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
-    @GetMapping("/villager/search")
-    public ResponseEntity<Object> listByMonth (@RequestParam Object month){
-        List<Object> villagersList = villageService.listVillagersByMonth(month);
-        return new ResponseEntity<>(villagersList, HttpStatus.OK);
-    }
-
-    @GetMapping("/villager/search/age")
-    public ResponseEntity<Object> listByAge(@RequestParam Integer age){
-        return new ResponseEntity<>(villageService.listVillagerByAge(age), HttpStatus.OK);
-
-    }
+//    @GetMapping("/villager/search")
+//    public ResponseEntity<Object> listByMonth (@RequestParam Object month){
+//        List<Object> villagersList = villageService.listVillagersByMonth(month);
+//        return new ResponseEntity<>(villagersList, HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/villager/search/age")
+//    public ResponseEntity<Object> listByAge(@RequestParam Integer age){
+//        return new ResponseEntity<>(villageService.listVillagerByAge(age), HttpStatus.OK);
+//
+//    }
 
     @GetMapping("/village/report")
     public ResponseEntity<VillageReport> report(){

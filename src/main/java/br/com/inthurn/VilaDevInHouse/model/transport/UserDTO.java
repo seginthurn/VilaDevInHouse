@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.transport;
 
+import br.com.inthurn.VilaDevInHouse.model.entity.Role;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,10 +11,7 @@ import java.util.UUID;
 public class UserDTO implements Serializable {
     private String username;
     private String password;
-    private List<RoleDTO> roles;
+    private UUID externalId;
+    private List<Role> roles;
 
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 }

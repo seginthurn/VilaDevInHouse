@@ -1,8 +1,8 @@
-package br.com.inthurn.VilaDevInHouse.service.restService.report;
+package br.com.inthurn.VilaDevInHouse.service.restservice.report;
 
 import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
-import br.com.inthurn.VilaDevInHouse.service.restService.villageService.VillageService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,8 @@ public class ReportService {
     private BigDecimal villageBudget;
 
     public VillageReport villageReport() throws SQLException {
-        return new VillageReport(villageBudget, villagerDAO.villagerCost(), villageService.convertToDTO(villagerDAO.villagerWithHighestIncome()));
+//        return new VillageReport(villageBudget, villagerDAO.villagerCost(), villageService.convertToDTO(villagerDAO.villagerWithHighestIncome()));
+        return null;
     }
 
 }
