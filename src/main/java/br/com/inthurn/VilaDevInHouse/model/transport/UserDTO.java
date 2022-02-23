@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class UserDTO implements Serializable {
-    private final String username;
-    private final String password;
-    private final List<RoleDTO> roles;
+    private String username;
+    private String password;
+    private List<RoleDTO> roles;
 }
