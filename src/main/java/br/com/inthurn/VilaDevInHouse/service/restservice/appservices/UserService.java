@@ -1,18 +1,16 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.appservices;
 
-import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
+
 import br.com.inthurn.VilaDevInHouse.model.entity.User;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
 import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
 import br.com.inthurn.VilaDevInHouse.repository.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,7 +20,6 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    @Autowired
     private final ModelMapper modelMapper;
 
 
@@ -32,12 +29,26 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public List<UserDTO> findAll(){
-        return userRepository
-                .findAll()
-                .stream()
-                .map(e ->convertToDTO(e))
-                .collect(Collectors.toList());
+    public List<UserDTO> findAll() {
+        return userRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    public UserDTO findByUsername(String username) {
+        return convertToDTO(userRepository.findByUsername(username));
+    }
+
+    public Boolean save(UserDTO userDTO) {
+        if (userDTO == null) {
+            return false;
+        }
+        try {
+            userRepository.save(convertToEntity(userDTO));
+            System.out.println(convertToEntity(userDTO));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
@@ -45,25 +56,20 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username));
 
-        if(user.isEmpty()){
+        if (user.isEmpty()) {
             throw new UsernameNotFoundException(username + " não foi localizado");
         }
 
         return new SpringSecurityUser(user);
     }
 
-    public UserDTO findByUsername(String username){
-        return convertToDTO(userRepository.findByUsername(username));
+
+    public UserDTO convertToDTO(User user) {
+        return modelMapper.map(user, UserDTO.class);
     }
 
-    public UserDTO convertToDTO(User user){
-        UserDTO userDTO = modelMapper.map(user, UserDTO.class);
-        return userDTO;
+    public User convertToEntity(UserDTO userDTO) {
+        return modelMapper.map(userDTO, User.class);
     }
 
-    public User convertToEntity(UserDTO userDTO){
-        User user = modelMapper.map(userDTO, User.class);
-        return user;
-    }
-    
 }

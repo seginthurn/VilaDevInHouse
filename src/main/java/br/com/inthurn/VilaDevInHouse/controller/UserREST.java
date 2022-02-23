@@ -5,10 +5,8 @@ import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,16 @@ public class UserREST {
 
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
 
+    }
+
+    @PostMapping
+    public ResponseEntity<String> save(UserDTO userDTO){
+        System.out.println(userDTO);
+        if(userService.save(userDTO)){
+            return new ResponseEntity<>("Usuãrio Salvo com sucesso!", HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("Erro ao cirar usuário", HttpStatus.BAD_REQUEST);
     }
 
 }
