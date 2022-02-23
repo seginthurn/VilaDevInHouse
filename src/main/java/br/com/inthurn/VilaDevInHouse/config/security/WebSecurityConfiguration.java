@@ -3,7 +3,7 @@ package br.com.inthurn.VilaDevInHouse.config.security;
 import br.com.inthurn.VilaDevInHouse.security.AuthenticationFilter;
 import br.com.inthurn.VilaDevInHouse.security.ValidationFilter;
 import br.com.inthurn.VilaDevInHouse.service.infrastructure.security.encoder.Encryptor;
-import br.com.inthurn.VilaDevInHouse.service.restService.appservices.AppUserService;
+import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,10 +19,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final AppUserService userService;
+    private final UserService userService;
     private final Encryptor encryptor;
 
-    public WebSecurityConfiguration(AppUserService userService, Encryptor encryptor) {
+    public WebSecurityConfiguration(UserService userService, Encryptor encryptor) {
         this.userService = userService;
         this.encryptor = encryptor;
     }
