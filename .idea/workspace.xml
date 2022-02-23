@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f74a819-4581-4d1f-b805-8a99966e101f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/Villager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillagerRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="com.haulmont.jpb.JpaEntity" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,13 +40,19 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="25TbIgFUFCtCbQtAAwQAlQMDaJE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,9 +60,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.VilaDevInHouseApplication">
     <configuration name="VilaDevInHouseApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_HOST" value="jdbc:mariadb://localhost:3306/viladevinhouse?createDatabaseIfNotExist=true" />
+        <env name="DB_USERNAME" value="root" />
+        <env name="DB_PASSWORD" value="102030" />
+        <env name="VILLAGE_BUDGET" value="2000000" />
+      </envs>
       <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
       <module name="VilaDevInHouse" />
       <extension name="coverage">
@@ -56,6 +84,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VilaDevInHouseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="VilaDevInHouse" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.VilaDevInHouseApplication" />
+      <item itemvalue="Spring Boot.VilaDevInHouseApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.VilaDevInHouseApplication" />
@@ -70,7 +109,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645553953229</updated>
+      <workItem from="1645571612867" duration="1452000" />
+      <workItem from="1645573741950" duration="510000" />
+      <workItem from="1645574273405" duration="23000" />
+      <workItem from="1645574543443" duration="198000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
