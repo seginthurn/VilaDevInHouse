@@ -1,7 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.appservices;
 
 import br.com.inthurn.VilaDevInHouse.interfaces.Convertible;
-import br.com.inthurn.VilaDevInHouse.model.entity.Role;
+import br.com.inthurn.VilaDevInHouse.model.entity.RoleEntity;
 import br.com.inthurn.VilaDevInHouse.model.transport.RoleDTO;
 import br.com.inthurn.VilaDevInHouse.repository.RoleRepository;
 import org.modelmapper.ModelMapper;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RoleService implements Convertible<Role, RoleDTO> {
+public class RoleService implements Convertible<RoleEntity, RoleDTO> {
 
     private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;
@@ -22,13 +22,13 @@ public class RoleService implements Convertible<Role, RoleDTO> {
     }
 
     @Override
-    public Role convertToEntity(RoleDTO roleDTO) {
-        return modelMapper.map(roleDTO, Role.class);
+    public RoleEntity convertToEntity(RoleDTO roleDTO) {
+        return modelMapper.map(roleDTO, RoleEntity.class);
     }
 
 
     @Override
-    public RoleDTO convertToDTO(Role role) {
+    public RoleDTO convertToDTO(RoleEntity role) {
         return modelMapper.map(role, RoleDTO.class);
     }
 
@@ -39,7 +39,7 @@ public class RoleService implements Convertible<Role, RoleDTO> {
         }
 
         try {
-           Role role = modelMapper.map(roleDTO, Role.class);
+           RoleEntity role = modelMapper.map(roleDTO, RoleEntity.class);
             return true;
         }catch (Exception e){
             e.printStackTrace();

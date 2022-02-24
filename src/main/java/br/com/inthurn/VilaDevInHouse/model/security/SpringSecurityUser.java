@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.security;
 ;
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,9 +10,9 @@ import java.util.Optional;
 
 public class SpringSecurityUser implements UserDetails {
 
-    private final Optional<User> user;
+    private final Optional<UserEntity> user;
 
-    public SpringSecurityUser(Optional<User> user) {
+    public SpringSecurityUser(Optional<UserEntity> user) {
         this.user = user;
     }
 
@@ -23,12 +23,12 @@ public class SpringSecurityUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.orElse(new User()).getPassword();
+        return user.orElse(new UserEntity()).getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.orElse(new User()).getUsername();
+        return user.orElse(new UserEntity()).getUsername();
     }
 
     @Override

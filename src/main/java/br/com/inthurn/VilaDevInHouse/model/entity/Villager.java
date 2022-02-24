@@ -20,12 +20,12 @@ public class Villager {
     private String externalId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private User user;
+    private UserEntity user;
 
     public Villager() {
     }
 
-    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, String externalId, User user) {
+    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, String externalId, UserEntity user) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -92,11 +92,11 @@ public class Villager {
         this.externalId = externalId;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
