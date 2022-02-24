@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,8 +39,7 @@ public class RoleService implements Convertible<Role, RoleDTO> {
         }
 
         try {
-            Role role = modelMapper.map(roleDTO, Role.class);
-            roleRepository.save(role);
+           Role role = modelMapper.map(roleDTO, Role.class);
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -51,23 +49,16 @@ public class RoleService implements Convertible<Role, RoleDTO> {
 
     @Override
     public List<RoleDTO> listAll() {
-        return roleRepository
-                .findAll()
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+        return roleRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
     @Override
-    public UUID delete(UUID uuid) {
-        if(uuid == null){
-            return uuid;
+    public String delete(String externalId) {
+        if(externalId == null){
+            return externalId;
         }
-
         try{
-            Role role = roleRepository.findByExternalId(uuid);
-            roleRepository.delete(role);
-            return role.getExternalId();
+            return externalId;
         }catch (Exception e){
             e.printStackTrace();
             return null;

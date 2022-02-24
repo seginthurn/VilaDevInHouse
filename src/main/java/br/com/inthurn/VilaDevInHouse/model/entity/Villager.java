@@ -1,26 +1,23 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
-@Table(name = "villager")
 public class Villager {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     private String name;
     private String surname;
     private Date birthday;
     private BigDecimal income;
-    private UUID externalId;
-
-    @Column(nullable = false, unique = true)
     private String cpf;
+    private String externalId;
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -28,14 +25,14 @@ public class Villager {
     public Villager() {
     }
 
-    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, UUID externalId, String cpf, User user) {
+    public Villager(Long id, String name, String surname, Date birthday, BigDecimal income, String cpf, String externalId, User user) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
         this.income = income;
-        this.externalId = externalId;
         this.cpf = cpf;
+        this.externalId = externalId;
         this.user = user;
     }
 
@@ -53,14 +50,6 @@ public class Villager {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public UUID getExternalId() {
-        return externalId;
-    }
-
-    public void setExternalId(UUID externalId) {
-        this.externalId = externalId;
     }
 
     public String getSurname() {
@@ -95,11 +84,32 @@ public class Villager {
         this.cpf = cpf;
     }
 
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Villager{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthday=" + birthday +
+                ", income=" + income +
+                ", cpf='" + cpf + '\'' +
+                ", externalId='" + externalId + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

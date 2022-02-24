@@ -2,18 +2,14 @@ package br.com.inthurn.VilaDevInHouse.model.entity;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
-@Table(name = "role")
 public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(name = "id", nullable = false)
     private Long id;
     private String role;
-    private UUID externalId;
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
@@ -21,10 +17,10 @@ public class Role {
     public Role() {
     }
 
-    public Role(Long id, String role, UUID externalId) {
+    public Role(Long id, String role, List<User> users) {
         this.id = id;
         this.role = role;
-        this.externalId = externalId;
+        this.users = users;
     }
 
     public Role(String role) {
@@ -47,11 +43,19 @@ public class Role {
         this.role = role;
     }
 
-    public UUID getExternalId() {
-        return externalId;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setExternalId(UUID externalId) {
-        this.externalId = externalId;
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "role='" + role + '\'' +
+                ", users=" + users +
+                '}';
     }
 }

@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -108,7 +107,7 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
     @Override
     public Boolean save(VillagerDTO villagerDTO) {
         try{
-            villagerRepository.save(convertToEntity(villagerDTO));
+            villagerRepository.save(this.convertToEntity(villagerDTO));
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -117,7 +116,7 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
     }
 
     @Override
-    public UUID delete(UUID UUID) {
+    public String delete(String externalId) {
         return null;
     }
 

@@ -1,7 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.report;
 
-import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
+import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
 import br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,11 +12,12 @@ import java.sql.SQLException;
 @Service
 public class ReportService {
 
-    private final VillagerDAO villagerDAO;
+    private final VillagerRepository villagerRepository;
     private final VillageService villageService;
 
-    public ReportService(VillagerDAO villagerDAO, VillageService villageService) {
-        this.villagerDAO = villagerDAO;
+
+    public ReportService(VillagerRepository villagerRepository, VillageService villageService) {
+        this.villagerRepository = villagerRepository;
         this.villageService = villageService;
     }
 

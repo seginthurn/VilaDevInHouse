@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.security;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.AppUserEntity;
+import br.com.inthurn.VilaDevInHouse.model.entity.User;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -22,7 +22,7 @@ import java.util.Date;
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
-    private final  String SECRET = "8y/B?D(G+KbPeShVmYq3t6w9z$C&F)H@McQfTjWnZr4u7x!A%D*G-KaNdRgUkXp2";
+    private final String SECRET = "8y/B?D(G+KbPeShVmYq3t6w9z$C&F)H@McQfTjWnZr4u7x!A%D*G-KaNdRgUkXp2";
     private final Integer EXPIRATION = 600000;
 
 
@@ -33,7 +33,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
-            AppUserEntity user = new ObjectMapper().readValue(request.getInputStream(), AppUserEntity.class);
+            User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
 
             return authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>()));

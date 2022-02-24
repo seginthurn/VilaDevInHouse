@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    private final ModelMapper modelMapper;
+    private static ModelMapper modelMapper;
 
 
     public UserService(UserRepository userRepository, ModelMapper modelMapper) {
@@ -42,8 +42,8 @@ public class UserService implements UserDetailsService {
             return false;
         }
         try {
-            userRepository.save(convertToEntity(userDTO));
-            System.out.println(convertToEntity(userDTO));
+           User user = modelMapper.map(userDTO, User.class);
+           userRepository.save(user);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

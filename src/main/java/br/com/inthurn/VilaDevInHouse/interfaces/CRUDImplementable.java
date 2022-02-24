@@ -1,7 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.interfaces;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface CRUDImplementable<DTO>{
 
@@ -9,6 +8,6 @@ public interface CRUDImplementable<DTO>{
 
     public List<DTO> listAll();
 
-    public UUID delete(UUID UUID);
+    public String delete(String externalId);
 
 }
