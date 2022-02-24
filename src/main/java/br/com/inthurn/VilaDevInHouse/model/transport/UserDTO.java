@@ -1,34 +1,56 @@
 package br.com.inthurn.VilaDevInHouse.model.transport;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.Role;
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserDTO implements Serializable {
 
     public static final Long serialVersionUID = 1L;
 
-    private Long id;
     private String username;
     private String password;
-    private List<Role> roles = new ArrayList<>();
+    private List<RoleDTO> roles = new ArrayList<>();
 
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-        this.roles.add(new Role("USER"));
+    public UserDTO() {
+        super();
     }
 
-    public User convertToEntity(){
-        return new User(username, password, roles);
+    public UserDTO(String username, String password, List<RoleDTO> roles) {
+        super();
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public UserEntity convertToEntity(){
+        return new UserEntity(username, password, roles.stream().map(RoleDTO::convertToEntity).collect(Collectors.toList()));
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<RoleDTO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleDTO> roles) {
+        this.roles = roles;
     }
 }

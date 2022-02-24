@@ -4,6 +4,8 @@ import br.com.inthurn.VilaDevInHouse.interfaces.Convertible;
 import br.com.inthurn.VilaDevInHouse.model.entity.Villager;
 import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
+import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
+import br.com.inthurn.VilaDevInHouse.utilities.UUIDManager;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,12 @@ import java.util.stream.Collectors;
 @Service
 public class VillageService implements Convertible<Villager, VillagerDTO> {
 
+    private final UserService userService;
     private final VillagerRepository villagerRepository;
     private final ModelMapper modelMapper;
 
-    public VillageService(VillagerRepository villagerRepository, ModelMapper modelMapper) {
+    public VillageService(UserService userService, VillagerRepository villagerRepository, ModelMapper modelMapper) {
+        this.userService = userService;
         this.villagerRepository = villagerRepository;
         this.modelMapper = modelMapper;
     }
@@ -107,6 +111,9 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
     @Override
     public Boolean save(VillagerDTO villagerDTO) {
         try{
+            if(villagerDTO.getExternalId() == null){
+                villagerDTO.setExternalId(UUIDManager.generate());
+            }
             villagerRepository.save(this.convertToEntity(villagerDTO));
             return true;
         }catch (Exception e){

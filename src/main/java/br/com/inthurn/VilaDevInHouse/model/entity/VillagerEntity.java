@@ -1,15 +1,18 @@
-package br.com.inthurn.VilaDevInHouse.model.transport;
+package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
-import br.com.inthurn.VilaDevInHouse.utilities.UUIDManager;
+import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class VillagerDTO implements Serializable {
+@Entity
+@Table(name = "villager")
+public class VillagerEntity {
 
-    public static final Long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
     private String surname;
@@ -17,12 +20,15 @@ public class VillagerDTO implements Serializable {
     private Date birthday;
     private BigDecimal income;
     private String externalId;
-    private UserDTO user;
 
-    public VillagerDTO() {
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private UserEntity user;
+
+    public VillagerEntity() {
     }
 
-    public VillagerDTO(String name, String surname, String cpf, Date birthday, BigDecimal income, String externalId, UserDTO user) {
+    public VillagerEntity(Long id, String name, String surname, String cpf, Date birthday, BigDecimal income, String externalId, UserEntity user) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.cpf = cpf;
@@ -32,8 +38,26 @@ public class VillagerDTO implements Serializable {
         this.user = user;
     }
 
-    public VillagerEntity convertToEntity(){
-        return new VillagerEntity(this.name, this.surname, this.cpf, this.birthday, this.income, this.externalId, this.user.convertToEntity());
+    public VillagerEntity(String name, String surname, String cpf, Date birthday, BigDecimal income, String externalId, UserEntity user) {
+        this.name = name;
+        this.surname = surname;
+        this.cpf = cpf;
+        this.birthday = birthday;
+        this.income = income;
+        this.externalId = externalId;
+        this.user = user;
+    }
+
+    public VillagerDTO convertToDTO(){
+        return new VillagerDTO(this.name, this.surname, this.cpf, this.birthday, this.income, this.externalId, this.user.convertToDTO());
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -84,11 +108,11 @@ public class VillagerDTO implements Serializable {
         this.externalId = externalId;
     }
 
-    public UserDTO getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(UserDTO user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 }

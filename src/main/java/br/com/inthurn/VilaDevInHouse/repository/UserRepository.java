@@ -1,10 +1,10 @@
 package br.com.inthurn.VilaDevInHouse.repository;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    public User findByUsername(String username);
+    public UserEntity findByUsername(String username);
 
 }
