@@ -29,18 +29,15 @@ public class VillageService{
                 .getAllByName(name);
     }
 
-//    public VillagerDTO listDetailsById(Integer id) throws SQLException {
-//        return convertToDTO(villagerDAO.listDetailsById(id));
-//    }
-//
-//    public void addNew(VillagerDTO villagerDTO){
-//       try {
-//           villagerDAO.addNew(villagerDTO);
-//       }catch (Exception e){
-//           System.out.println(e.getMessage());
-//       }
-//
-//    }
+    public VillagerDTO listDetailsByExternalId(String id){
+        try {
+            return convertToDTO(villagerRepository.findByExternalId(id));
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 //
 //    public List<Object> listVillagersByMonth(Object month){
 //        try {

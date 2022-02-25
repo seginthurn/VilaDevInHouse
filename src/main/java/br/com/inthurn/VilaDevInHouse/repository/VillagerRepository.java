@@ -2,6 +2,7 @@ package br.com.inthurn.VilaDevInHouse.repository;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
+import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -15,5 +16,7 @@ public interface VillagerRepository extends JpaRepository<VillagerEntity, Long> 
 
     @Query("SELECT v.externalId as id, v.name as name, v.surname as surname from VillagerEntity v where name like ?1")
     List<VillagerExternalIdAndName> getAllByName(String username);
+
+    VillagerEntity findByExternalId(String externalId);
 
 }
