@@ -52,14 +52,14 @@ public class VillageREST {
 
     }
 
-//    @GetMapping("/villager/{id}")
-//    public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
-//        try {
-//            return new ResponseEntity<Object>(villageService.listDetailsById(id), HttpStatus.OK);
-//        }catch (Exception e){
-//            return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @GetMapping("/villager/{id}")
+    public ResponseEntity<Object> getDetailsByExternalId(@PathVariable String id){
+        try {
+            return new ResponseEntity<Object>(villageService.listDetailsByExternalId(id), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @PostMapping("/villager/new")
     public ResponseEntity<String> addNew(@RequestBody VillagerDTO villagerDTO){
