@@ -40,7 +40,7 @@ public class VillageREST {
             return new ResponseEntity<>("ERRO: O nome não pode estar vazio!", HttpStatus.BAD_REQUEST);
         }
         try {
-            return new ResponseEntity<Object>(villageService.listAllByName(name), HttpStatus.OK);
+            return new ResponseEntity<Object>(villageService.getAllByName(name), HttpStatus.OK);
         }catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

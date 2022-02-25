@@ -1,19 +1,18 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.villageService;
 
-import br.com.inthurn.VilaDevInHouse.interfaces.Convertible;
-import br.com.inthurn.VilaDevInHouse.model.entity.Villager;
+import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
+import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
 import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
-import br.com.inthurn.VilaDevInHouse.utilities.UUIDManager;
+import br.com.inthurn.VilaDevInHouse.model.entity.utilities.UUIDManager;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class VillageService implements Convertible<Villager, VillagerDTO> {
+public class VillageService{
 
     private final UserService userService;
     private final VillagerRepository villagerRepository;
@@ -25,12 +24,9 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
         this.modelMapper = modelMapper;
     }
 
-    public List<VillagerDTO> listAllByName(String name){
+    public List<VillagerExternalIdAndName> getAllByName(String name){
         return villagerRepository
-                .findAllByName(name)
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+                .getAllByName(name);
     }
 
 //    public VillagerDTO listDetailsById(Integer id) throws SQLException {
@@ -99,16 +95,10 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
 //    }
 
 
-    @Override
-    public List<VillagerDTO> listAll() {
-        return villagerRepository
-                .findAll()
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public List<VillagerExternalIdAndName> listAll() {
+        return villagerRepository.findAllVillagers();
     }
 
-    @Override
     public Boolean save(VillagerDTO villagerDTO) {
         try{
             if(villagerDTO.getExternalId() == null){
@@ -122,18 +112,16 @@ public class VillageService implements Convertible<Villager, VillagerDTO> {
         }
     }
 
-    @Override
     public String delete(String externalId) {
         return null;
     }
 
-    @Override
-    public Villager convertToEntity(VillagerDTO villagerDTO) {
-        return modelMapper.map(villagerDTO, Villager.class);
+    public VillagerEntity convertToEntity(VillagerDTO villagerDTO) {
+        return modelMapper.map(villagerDTO, VillagerEntity.class);
     }
 
-    @Override
-    public VillagerDTO convertToDTO(Villager villager) {
+    public VillagerDTO convertToDTO(VillagerEntity villager) {
         return modelMapper.map(villager, VillagerDTO.class);
     }
+
 }

@@ -1,4 +1,4 @@
-package br.com.inthurn.VilaDevInHouse.utilities;
+package br.com.inthurn.VilaDevInHouse.model.entity.utilities;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

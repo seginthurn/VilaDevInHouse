@@ -1,7 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.transport;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
-import br.com.inthurn.VilaDevInHouse.utilities.UUIDManager;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

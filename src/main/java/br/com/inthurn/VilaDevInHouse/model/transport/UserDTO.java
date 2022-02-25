@@ -2,6 +2,7 @@ package br.com.inthurn.VilaDevInHouse.model.transport;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 
+import javax.management.relation.Role;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class UserDTO implements Serializable {
         super();
         this.username = username;
         this.password = password;
-        this.roles = roles;
+        this.roles = verifyRoleDTO(roles);
     }
 
     public UserEntity convertToEntity(){
@@ -52,5 +53,12 @@ public class UserDTO implements Serializable {
 
     public void setRoles(List<RoleDTO> roles) {
         this.roles = roles;
+    }
+
+    public List<RoleDTO> verifyRoleDTO(List<RoleDTO> roleDTOList){
+        if(roleDTOList == null){
+            this.roles.add(new RoleDTO("USER"));
+        }
+        return roleDTOList;
     }
 }
