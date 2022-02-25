@@ -13,6 +13,7 @@ public interface VillagerRepository extends JpaRepository<VillagerEntity, Long> 
     @Query("SELECT v.externalId as id, v.name as name, v.surname as surname from VillagerEntity v")
     List<VillagerExternalIdAndName> findAllVillagers();
 
+    @Query("SELECT v.externalId as id, v.name as name, v.surname as surname from VillagerEntity v where name like ?1")
     List<VillagerExternalIdAndName> getAllByName(String username);
 
 }

@@ -1,5 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
+import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
 
 import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -35,19 +37,20 @@ public class VillageREST {
     }
 
     @GetMapping("/villagers/search")
-    public ResponseEntity<Object> listVillagersByName(@RequestParam String name){
-        if(name == null){
-            return new ResponseEntity<>("ERRO: O nome não pode estar vazio!", HttpStatus.BAD_REQUEST);
-        }
-        try {
-            return new ResponseEntity<Object>(villageService.getAllByName(name), HttpStatus.OK);
-        }catch (Exception e){
-            e.printStackTrace();
+    public ResponseEntity<List<VillagerExternalIdAndName>> getAllByName(@RequestParam String name){
+        if(name == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
 
-    }
+        try {
+            List<VillagerExternalIdAndName> villagers = villageService.getAllByName(name);
+            return new ResponseEntity<List<VillagerExternalIdAndName>>(villagers, HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
 
+    }
 
 //    @GetMapping("/villager/{id}")
 //    public ResponseEntity<Object> listVillagerPerId(@PathVariable Integer id){
