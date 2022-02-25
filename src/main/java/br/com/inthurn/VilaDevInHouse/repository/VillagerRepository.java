@@ -4,7 +4,9 @@ import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
 import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,5 +20,10 @@ public interface VillagerRepository extends JpaRepository<VillagerEntity, Long> 
     List<VillagerExternalIdAndName> getAllByName(String username);
 
     VillagerEntity findByExternalId(String externalId);
+
+    @Modifying
+    @Query("DELETE FROM VillagerEntity v where v.externalId = ?1 ")
+    @Transactional
+    void deleteByExternalId(String externalId);
 
 }

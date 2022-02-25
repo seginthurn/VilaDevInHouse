@@ -71,15 +71,15 @@ public class VillageREST {
         }
     }
 
-//    @DeleteMapping("/villager/delete")
-//    public ResponseEntity<String> delete(@RequestParam Integer id){
-//        try {
-//            villageService.deleteVillager(id);
-//            return ResponseEntity.ok("Usuário deletado");
-//        }catch (Exception e){
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @DeleteMapping("/villager/delete")
+    public ResponseEntity<String> delete(@RequestParam String id){
+        try {
+            villageService.deleteById(id);
+            return ResponseEntity.ok("Usuário deletado");
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
 
 //    @GetMapping("/villager/search")
 //    public ResponseEntity<Object> listByMonth (@RequestParam Object month){
