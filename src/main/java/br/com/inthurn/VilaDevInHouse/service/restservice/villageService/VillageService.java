@@ -38,6 +38,14 @@ public class VillageService{
         }
     }
 
+    public void deleteById(String id){
+        try {
+            villagerRepository.deleteByExternalId(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 //
 //    public List<Object> listVillagersByMonth(Object month){
 //        try {
