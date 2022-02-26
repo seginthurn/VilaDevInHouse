@@ -81,17 +81,17 @@ public class VillageREST {
         }
     }
 
-//    @GetMapping("/villager/search")
-//    public ResponseEntity<Object> listByMonth (@RequestParam Object month){
-//        List<Object> villagersList = villageService.listVillagersByMonth(month);
-//        return new ResponseEntity<>(villagersList, HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/villager/search/age")
-//    public ResponseEntity<Object> listByAge(@RequestParam Integer age){
-//        return new ResponseEntity<>(villageService.listVillagerByAge(age), HttpStatus.OK);
-//
-//    }
+    @GetMapping("/villager/search")
+    public ResponseEntity<List<VillagerExternalIdAndName>> listByMonth (@RequestParam Integer month){
+        List<VillagerExternalIdAndName> villagersList = villageService.listVillagersByMonth(month);
+        return new ResponseEntity<List<VillagerExternalIdAndName>>(villagersList, HttpStatus.OK);
+    }
+
+    @GetMapping("/villager/search/byage")
+    public ResponseEntity<Object> listByAge(@RequestParam Integer age){
+        return new ResponseEntity<>(villageService.listVillagerByAge(age), HttpStatus.OK);
+
+    }
 
     @GetMapping("/village/report")
     public ResponseEntity<VillageReport> report(){
