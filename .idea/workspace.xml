@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f74a819-4581-4d1f-b805-8a99966e101f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" afterDir="false" />
@@ -43,7 +44,7 @@
       <map>
         <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -85,7 +86,7 @@
       <envs>
         <env name="DB_HOST" value="jdbc:mariadb://localhost:3306/viladevinhouse?createDatabaseIfNotExist=true" />
         <env name="DB_USERNAME" value="root" />
-        <env name="DB_PASSWORD" value="882030Ts" />
+        <env name="DB_PASSWORD" value="102030" />
         <env name="VILLAGE_BUDGET" value="2000000" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
@@ -125,6 +126,7 @@
     <list>
       <item itemvalue="Application.VilaDevInHouseApplication" />
       <item itemvalue="JUnit.VillageServiceTest" />
+      <item itemvalue="Spring Boot.VilaDevInHouseApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -153,6 +155,7 @@
       <workItem from="1645665200392" duration="163000" />
       <workItem from="1645665843074" duration="4203000" />
       <workItem from="1645744460059" duration="7825000" />
+      <workItem from="1645874461629" duration="5318000" />
     </task>
     <servers />
   </component>
@@ -169,6 +172,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

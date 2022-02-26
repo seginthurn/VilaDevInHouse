@@ -26,4 +26,12 @@ public interface VillagerRepository extends JpaRepository<VillagerEntity, Long> 
     @Transactional
     void deleteByExternalId(String externalId);
 
+    @Query(value = "SELECT v.externalId as id, v.name as name, v.surname as surname from VillagerEntity  v WHERE EXTRACT (month from v.birthday) = ?1")
+    List<VillagerExternalIdAndName> getAllByBirthdayMonth(Integer month);
+
+    @Query(value = "SELECT v.externalId as id, v.name as name, v.surname as surname FROM VillagerEntity v WHERE EXTRACT(year from v.birthday) <= ?1")
+    List<VillagerExternalIdAndName> getAllByAge(Integer year);
+
+
+
 }

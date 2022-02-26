@@ -9,6 +9,8 @@ import br.com.inthurn.VilaDevInHouse.model.entity.utilities.UUIDManager;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -46,23 +48,16 @@ public class VillageService{
         }
     }
 
-//
-//    public List<Object> listVillagersByMonth(Object month){
-//        try {
-//            Integer monthInteger = Integer.parseInt(month.toString());
-//            return villagerDAO
-//                    .listPerMonth(monthInteger)
-//                    .stream()
-//                    .map(this::convertToDTO)
-//                    .collect(Collectors.toList());
-//        }catch (Exception e){
-//            return villagerDAO
-//                    .listPerMonth(month)
-//                    .stream()
-//                    .map(this::convertToDTO)
-//                    .collect(Collectors.toList());
-//        }
-//    }
+
+    public List<VillagerExternalIdAndName> listVillagersByMonth(Integer month){
+        try {
+            return villagerRepository
+                    .getAllByBirthdayMonth(month);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 //
 //
 //    public VillagerEntity convertToEntity(VillagerDTO villagerDTO){
@@ -92,12 +87,10 @@ public class VillageService{
 //        appUserDAO.delete(id);
 //    }
 //
-//    public List<VillagerDTO> listVillagerByAge(Integer age){
-//        return villagerDAO.listByAge(age)
-//                .stream()
-//                .map(this::convertToDTO)
-//                .collect(Collectors.toList());
-//    }
+    public List<VillagerExternalIdAndName> listVillagerByAge(Integer age){
+        Integer year = (Calendar.getInstance().get(Calendar.YEAR) - age);
+        return villagerRepository.getAllByAge(year);
+    }
 
 
     public List<VillagerExternalIdAndName> listAll() {
