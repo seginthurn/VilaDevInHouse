@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f74a819-4581-4d1f-b805-8a99966e101f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/utilities/DateUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/DateUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/utilities/MoneyUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/MoneyUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/utilities/UUIDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/report/VillageReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/utilities/DateUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/utilities/MoneyUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/utilities/UUIDManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/report/VillageReport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,14 +37,22 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -79,6 +101,9 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.inthurn.VilaDevInHouse.model.projections" />
     </key>
   </component>
   <component name="RunManager" selected="Application.VilaDevInHouseApplication">
@@ -155,7 +180,11 @@
       <workItem from="1645665200392" duration="163000" />
       <workItem from="1645665843074" duration="4203000" />
       <workItem from="1645744460059" duration="7825000" />
-      <workItem from="1645874461629" duration="5318000" />
+      <workItem from="1645874461629" duration="5396000" />
+      <workItem from="1645883056168" duration="1850000" />
+      <workItem from="1645885321774" duration="143000" />
+      <workItem from="1645885524381" duration="806000" />
+      <workItem from="1645886677846" duration="122000" />
     </task>
     <servers />
   </component>
