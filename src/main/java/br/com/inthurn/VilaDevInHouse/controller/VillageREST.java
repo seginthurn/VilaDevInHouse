@@ -1,7 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
-import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
+import br.com.inthurn.VilaDevInHouse.model.security.report.VillageReport;
 
 import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.report.ReportService;
