@@ -61,7 +61,8 @@ public class ReportMessageDTO implements Serializable {
     public String toString() {
         return "ReportMessageDTO{" + "\n" +
                 "email='" + email + ",\n" +
-                "message=" + villageReport +
+                "message={" + "\n" +
+                villageReport +
                 '}';
     }
 }

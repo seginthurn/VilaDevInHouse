@@ -26,6 +26,7 @@ public class ReportConsumer {
                 if(reportMessageDTO.getVality()){
 
                     PDFManager.generateReport("Relatório", reportService.villageReport());
+                    reportMessageDTO.setVillageReport(reportService.villageReport().generateDTO());
                     rabbitTemplate.convertAndSend("village.email", reportMessageDTO);
 
                 }else{

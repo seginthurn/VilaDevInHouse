@@ -1,7 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.service.utilities;
 
 import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
-import br.com.inthurn.VilaDevInHouse.model.transport.messages.ReportMessageDTO;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 
