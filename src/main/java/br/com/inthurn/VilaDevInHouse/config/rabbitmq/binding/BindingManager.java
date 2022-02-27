@@ -1,36 +1,25 @@
 package br.com.inthurn.VilaDevInHouse.config.rabbitmq.binding;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 
+import java.util.Map;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BindingManager {
 
     private Queue queue;
     private DirectExchange directExchange;
-
-    public BindingManager(Queue queue, DirectExchange directExchange) {
-        this.queue = queue;
-        this.directExchange = directExchange;
-    }
+    private Map<String, Object> args;
 
     public Binding create(){
-        return new Binding(this.queue.getName(), Binding.DestinationType.QUEUE, this.directExchange.getName(), this.queue.getName(), null);
+        return new Binding(this.queue.getName(), Binding.DestinationType.QUEUE, this.directExchange.getName(), this.queue.getName(), this.args);
     }
 
-    public Queue getQueue() {
-        return queue;
-    }
-
-    public void setQueue(Queue queue) {
-        this.queue = queue;
-    }
-
-    public DirectExchange getDirectExchange() {
-        return directExchange;
-    }
-
-    public void setDirectExchange(DirectExchange directExchange) {
-        this.directExchange = directExchange;
-    }
 }

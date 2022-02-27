@@ -1,6 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
 import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
+import br.com.inthurn.VilaDevInHouse.service.infrastructure.messagebroker.rabbitmq.RabbitMQService;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +13,14 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserREST {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserREST(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/username")
-    public UserDTO findByUsername(@RequestBody String username){
+    @GetMapping("/search")
+    public UserDTO findByUsername(@RequestParam String username){
         return userService.findByUsername(username);
     }
 
