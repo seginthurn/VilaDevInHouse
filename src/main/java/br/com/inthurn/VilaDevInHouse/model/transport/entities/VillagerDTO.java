@@ -1,4 +1,4 @@
-package br.com.inthurn.VilaDevInHouse.model.transport;
+package br.com.inthurn.VilaDevInHouse.model.transport.entities;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 
@@ -29,6 +29,12 @@ public class VillagerDTO implements Serializable {
         this.income = income;
         this.externalId = externalId;
         this.user = user;
+    }
+
+    public VillagerDTO(String name, BigDecimal income, String externalId) {
+        this.name = name;
+        this.income = income;
+        this.externalId = externalId;
     }
 
     public VillagerEntity convertToEntity(){

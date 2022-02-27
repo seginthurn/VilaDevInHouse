@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 
 import javax.persistence.*;
 import java.util.List;

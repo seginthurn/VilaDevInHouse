@@ -1,4 +1,4 @@
-package br.com.inthurn.VilaDevInHouse.model.transport;
+package br.com.inthurn.VilaDevInHouse.model.transport.entities;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.RoleEntity;
 import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;

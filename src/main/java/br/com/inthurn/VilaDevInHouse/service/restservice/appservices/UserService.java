@@ -3,7 +3,7 @@ package br.com.inthurn.VilaDevInHouse.service.restservice.appservices;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
-import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetails;

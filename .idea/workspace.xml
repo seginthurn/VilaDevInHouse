@@ -5,31 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f74a819-4581-4d1f-b805-8a99966e101f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/ReportREST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/ReportMessageDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/infrastructure/messagebroker/rabbitmq/RabbitMQService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/DLXConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/report/VillageReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/reports/VillageReportDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RabbitMQDiagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/RabbitMQDiagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/security/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/config/security/WebSecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/ReportREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/ReportREST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/UserREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/UserREST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/appuser/AppUserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/ReportMessageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/messages/ReportMessageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/RoleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/entities/RoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/entities/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/VillagerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/entities/VillagerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/VilaDevInHouse.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/security/WebSecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/ReportREST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/ReportREST.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/UserREST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/UserREST.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/appuser/AppUserDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/villager/VillagerDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/security/report/VillageReport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/ReportMessageDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/RoleDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/UserDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/VillagerDto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +221,7 @@
       <workItem from="1645912977523" duration="8050000" />
       <workItem from="1645927711180" duration="1878000" />
       <workItem from="1645929785006" duration="1000" />
+      <workItem from="1645929955580" duration="6944000" />
     </task>
     <servers />
   </component>

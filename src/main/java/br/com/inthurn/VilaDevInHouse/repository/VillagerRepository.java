@@ -3,7 +3,6 @@ package br.com.inthurn.VilaDevInHouse.repository;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerWithIncome;
-import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

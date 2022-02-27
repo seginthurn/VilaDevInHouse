@@ -1,9 +1,7 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.report;
 
-import br.com.inthurn.VilaDevInHouse.model.projections.VillagerWithIncome;
-import br.com.inthurn.VilaDevInHouse.model.security.report.VillageReport;
+import br.com.inthurn.VilaDevInHouse.model.report.VillageReport;
 import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
-import br.com.inthurn.VilaDevInHouse.service.infrastructure.messagebroker.rabbitmq.RabbitMQService;
 import br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

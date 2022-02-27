@@ -24,13 +24,23 @@ public class RabbitMQConnector {
         Map<String, Object> args = new HashMap<>();
         args.put("x-message-ttl", 300);
 
-        BindingManager villageReport = new BindingManager(QueueManager.create("village.report"), ExchangeManager.create("vila.exchange"), args);
+        BindingManager villageReport = new BindingManager(QueueManager.create("village.report"), ExchangeManager.create("village.exchange"), args);
+        BindingManager villageDLX = new BindingManager(QueueManager.create("village.dlx"), ExchangeManager.create("dlx.exchange"), args);
+        BindingManager villageEmail = new BindingManager(QueueManager.create("village.email"), ExchangeManager.create("email.exchange"), args);
 
         amqpAdmin.declareQueue(villageReport.getQueue());
+        amqpAdmin.declareQueue(villageDLX.getQueue());
+        amqpAdmin.declareQueue(villageEmail.getQueue());
+
 
         amqpAdmin.declareExchange(villageReport.getDirectExchange());
+        amqpAdmin.declareExchange(villageDLX.getDirectExchange());
+        amqpAdmin.declareExchange(villageEmail.getDirectExchange());
+
 
         amqpAdmin.declareBinding(villageReport.create());
+        amqpAdmin.declareBinding(villageDLX.create());
+        amqpAdmin.declareBinding(villageEmail.create());
     }
 
 
