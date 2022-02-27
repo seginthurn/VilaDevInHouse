@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f74a819-4581-4d1f-b805-8a99966e101f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/EmailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Relatório.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Relatório.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/messages/ReportMessageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/transport/messages/ReportMessageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManagerTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,71 +86,15 @@
       <recent name="br.com.inthurn.VilaDevInHouse.service.restservice.appservices" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="br.com.inthurn.VilaDevInHouse.service.utilities" />
       <recent name="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+      <recent name="br.com.inthurn.VilaDevInHouse.service.utilities" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="br.com.inthurn.VilaDevInHouse.model.projections" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VilaDevInHouseApplication">
-    <configuration name="VilaDevInHouseApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <envs>
-        <env name="DB_HOST" value="jdbc:mariadb://localhost:3306/viladevinhouse?createDatabaseIfNotExist=true" />
-        <env name="DB_USERNAME" value="root" />
-        <env name="DB_PASSWORD" value="102030" />
-        <env name="VILLAGE_BUDGET" value="2000000" />
-        <env name="RABBIT_HOST" value="localhost" />
-        <env name="RABBIT_PORT" value="5672" />
-        <env name="RABBIT_USERNAME" value="admin" />
-        <env name="RABBIT_PASSWORD" value="admin" />
-        <env name="MAIL_USERNAME" value="viladevinhouse@outlook.com" />
-        <env name="MAIL_PASSWORD" value="Mads@24!" />
-      </envs>
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
-      <module name="VilaDevInHouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UUIDManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VilaDevInHouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.utilities.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UUIDManagerTest.shouldReturnStringWhenMethodIsCalled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="VilaDevInHouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.utilities.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManagerTest" />
-      <option name="METHOD_NAME" value="shouldReturnStringWhenMethodIsCalled" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VillageServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.VillageServiceTest.shouldGenerateExternalIdWhenExternalIdIsNull">
+    <configuration name="VillageServiceTest.listAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VilaDevInHouse" />
       <extension name="coverage">
         <pattern>
@@ -171,7 +104,72 @@
       </extension>
       <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
       <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="listAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VillageServiceTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
+      <option name="METHOD_NAME" value="save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VillageServiceTest.shouldGenerateExternalIdWhenExternalIdIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
+      <option name="METHOD_NAME" value="shouldGenerateExternalIdWhenExternalIdIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VillageServiceTest.shouldReturnFalseWhenVillagerIsInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnFalseWhenVillagerIsInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VillageServiceTest.shouldReturnTrueWhenVillagerIsSaved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
+      <option name="METHOD_NAME" value="shouldReturnTrueWhenVillagerIsSaved" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,23 +177,26 @@
     <configuration name="VilaDevInHouseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="VilaDevInHouse" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.VilaDevInHouseApplication" />
-      <item itemvalue="JUnit.VillageServiceTest" />
-      <item itemvalue="JUnit.UUIDManagerTest" />
-      <item itemvalue="JUnit.UUIDManagerTest.shouldReturnStringWhenMethodIsCalled" />
       <item itemvalue="Spring Boot.VilaDevInHouseApplication" />
+      <item itemvalue="JUnit.VillageServiceTest.listAll" />
+      <item itemvalue="JUnit.VillageServiceTest.save" />
+      <item itemvalue="JUnit.VillageServiceTest.shouldReturnTrueWhenVillagerIsSaved" />
+      <item itemvalue="JUnit.VillageServiceTest.shouldReturnFalseWhenVillagerIsInvalid" />
+      <item itemvalue="JUnit.VillageServiceTest.shouldGenerateExternalIdWhenExternalIdIsNull" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VilaDevInHouseApplication" />
-        <item itemvalue="JUnit.UUIDManagerTest" />
-        <item itemvalue="JUnit.UUIDManagerTest.shouldReturnStringWhenMethodIsCalled" />
-        <item itemvalue="JUnit.VillageServiceTest" />
+        <item itemvalue="JUnit.VillageServiceTest.shouldGenerateExternalIdWhenExternalIdIsNull" />
+        <item itemvalue="JUnit.VillageServiceTest.shouldReturnFalseWhenVillagerIsInvalid" />
+        <item itemvalue="JUnit.VillageServiceTest.shouldReturnTrueWhenVillagerIsSaved" />
+        <item itemvalue="JUnit.VillageServiceTest.save" />
+        <item itemvalue="JUnit.VillageServiceTest.listAll" />
       </list>
     </recent_temporary>
   </component>
@@ -236,6 +237,7 @@
       <workItem from="1645937730498" duration="21000" />
       <workItem from="1645937933666" duration="4170000" />
       <workItem from="1645969272768" duration="3566000" />
+      <workItem from="1645982632480" duration="4622000" />
     </task>
     <servers />
   </component>

@@ -27,13 +27,9 @@ public class VillageService{
                 .getAllByName(name);
     }
 
-    public VillagerDTO listDetailsByExternalId(String id){
-        try {
-            return convertToDTO(villagerRepository.findByExternalId(id));
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
+    public VillagerDTO listDetailsByExternalId(String externalId){
+        VillagerDTO villagerDTO = villagerRepository.findByExternalId(externalId).convertToDTO();
+        return villagerDTO;
     }
 
     public void deleteById(String id){
