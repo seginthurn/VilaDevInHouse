@@ -1,10 +1,8 @@
 package br.com.inthurn.VilaDevInHouse.model.security.report;
 
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerWithIncome;
-import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.math.BigDecimal;
 

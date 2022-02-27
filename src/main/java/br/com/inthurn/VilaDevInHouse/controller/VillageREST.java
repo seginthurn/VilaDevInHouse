@@ -93,14 +93,6 @@ public class VillageREST {
 
     }
 
-    @GetMapping("/village/report")
-    public ResponseEntity<VillageReport> report(){
-       try {
-           return new ResponseEntity<>(reportService.villageReport(), HttpStatus.OK);
-       }catch (SQLException e){
-           e.printStackTrace();
-           return null;
-       }
-    }
+
 
 }
