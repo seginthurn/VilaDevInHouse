@@ -8,5 +8,4 @@ public class UUIDManager {
         return UUID.randomUUID().toString();
     }
 
-
-}
+    }
