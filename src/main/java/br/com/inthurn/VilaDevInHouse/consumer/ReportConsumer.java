@@ -1,8 +1,8 @@
 package br.com.inthurn.VilaDevInHouse.consumer;
 
-import br.com.inthurn.VilaDevInHouse.model.security.report.VillageReport;
-import br.com.inthurn.VilaDevInHouse.model.transport.ReportMessageDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.messages.ReportMessageDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.report.ReportService;
+import br.com.inthurn.VilaDevInHouse.service.utilities.PDFManager;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
@@ -24,11 +24,16 @@ public class ReportConsumer {
         reportMessageDTO.addRetry();
             try {
                 if(reportMessageDTO.getVality()){
-                    VillageReport villageReport = reportService.villageReport();
+
+                    PDFManager.generateReport("Relatório", reportService.villageReport());
+                    rabbitTemplate.convertAndSend("village.email", reportMessageDTO);
+
                 }else{
                     if(reportMessageDTO.getRetry() <= 3){
                         System.out.println("Reenviando para fila");
                         rabbitTemplate.convertAndSend("village.report", reportMessageDTO);
+                    }else{
+                        rabbitTemplate.convertAndSend("village.dlx", reportMessageDTO);
                     }
                 }
             }catch (Exception e){

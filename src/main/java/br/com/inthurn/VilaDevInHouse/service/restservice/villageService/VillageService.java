@@ -2,7 +2,7 @@ package br.com.inthurn.VilaDevInHouse.service.restservice.villageService;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
-import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
 import br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManager;
 import org.modelmapper.ModelMapper;

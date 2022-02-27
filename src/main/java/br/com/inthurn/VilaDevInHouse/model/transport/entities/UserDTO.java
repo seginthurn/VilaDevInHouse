@@ -1,8 +1,7 @@
-package br.com.inthurn.VilaDevInHouse.model.transport;
+package br.com.inthurn.VilaDevInHouse.model.transport.entities;
 
 import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 
-import javax.management.relation.Role;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

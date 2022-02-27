@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import br.com.inthurn.VilaDevInHouse.model.transport.VillagerDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.VillagerDTO;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

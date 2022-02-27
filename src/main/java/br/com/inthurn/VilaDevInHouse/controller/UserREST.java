@@ -1,7 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
-import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
-import br.com.inthurn.VilaDevInHouse.service.infrastructure.messagebroker.rabbitmq.RabbitMQService;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

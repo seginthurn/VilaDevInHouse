@@ -1,6 +1,6 @@
 package br.com.inthurn.VilaDevInHouse.model.entity;
 
-import br.com.inthurn.VilaDevInHouse.model.transport.RoleDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.RoleDTO;
 
 import javax.persistence.*;
 
