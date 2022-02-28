@@ -19,8 +19,8 @@
 //@EnableWebSecurity
 //public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //
-//    private final UserService userService;
-//    private final Encryptor encryptor;
+//    private UserService userService;
+//    private Encryptor encryptor;
 //
 //    public WebSecurityConfiguration(UserService userService, Encryptor encryptor) {
 //        this.userService = userService;

@@ -1,11 +1,9 @@
 package br.com.inthurn.VilaDevInHouse.controller;
 
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
-import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.service.restservice.appservices.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,14 +12,14 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserREST {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserREST(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/username")
-    public UserDTO findByUsername(@RequestBody String username){
+    @GetMapping("/search")
+    public UserDTO findByUsername(@RequestParam String username){
         return userService.findByUsername(username);
     }
 
@@ -33,7 +31,7 @@ public class UserREST {
     }
 
     @PostMapping
-    public ResponseEntity<String> save(UserDTO userDTO){
+    public ResponseEntity<String> save(@RequestBody UserDTO userDTO){
         System.out.println(userDTO);
         if(userService.save(userDTO)){
             return new ResponseEntity<>("Usuãrio Salvo com sucesso!", HttpStatus.OK);

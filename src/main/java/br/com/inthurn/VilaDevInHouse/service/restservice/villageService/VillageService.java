@@ -1,105 +1,87 @@
-package br.com.inthurn.VilaDevInHouse.service.restService.villageService;
+package br.com.inthurn.VilaDevInHouse.service.restservice.villageService;
 
-import br.com.inthurn.VilaDevInHouse.dao.AppUserDAO;
-import br.com.inthurn.VilaDevInHouse.dao.VillagerDAO;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
-import br.com.inthurn.VilaDevInHouse.model.transport.villager.VillagerDTO;
+import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.VillagerDTO;
+import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
+import br.com.inthurn.VilaDevInHouse.service.utilities.UUIDManager;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class VillageService {
+public class VillageService{
 
-    private final VillagerDAO villagerDAO;
-    private final AppUserDAO appUserDAO;
+    private final VillagerRepository villagerRepository;
+    private final ModelMapper modelMapper;
 
-    public VillageService(VillagerDAO villagerDAO, AppUserDAO appUserDAO) {
-        this.villagerDAO = villagerDAO;
-        this.appUserDAO = appUserDAO;
+    public VillageService(VillagerRepository villagerRepository, ModelMapper modelMapper) {
+        this.villagerRepository = villagerRepository;
+        this.modelMapper = modelMapper;
     }
 
-    public List<VillagerDTO> listAll(){
-        return villagerDAO
-                .listAll()
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public List<VillagerExternalIdAndName> getAllByName(String name){
+        return villagerRepository
+                .getAllByName(name);
     }
 
-    public List<VillagerDTO> listAllByName(String name){
-        return villagerDAO
-                .listByName(name)
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+    public VillagerDTO listDetailsByExternalId(String externalId){
+        VillagerDTO villagerDTO = villagerRepository.findByExternalId(externalId).convertToDTO();
+        return villagerDTO;
     }
 
-    public VillagerDTO listDetailsById(Integer id) throws SQLException {
-        return convertToDTO(villagerDAO.listDetailsById(id));
-    }
-
-    public void addNew(VillagerDTO villagerDTO){
-       try {
-           villagerDAO.addNew(villagerDTO);
-       }catch (Exception e){
-           System.out.println(e.getMessage());
-       }
-
-    }
-
-    public List<Object> listVillagersByMonth(Object month){
+    public void deleteById(String id){
         try {
-            Integer monthInteger = Integer.parseInt(month.toString());
-            return villagerDAO
-                    .listPerMonth(monthInteger)
-                    .stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
+            villagerRepository.deleteByExternalId(id);
         }catch (Exception e){
-            return villagerDAO
-                    .listPerMonth(month)
-                    .stream()
-                    .map(this::convertToDTO)
-                    .collect(Collectors.toList());
+            e.printStackTrace();
         }
     }
 
 
-    public VillagerEntity convertToEntity(VillagerDTO villagerDTO){
-            return new VillagerEntity(
-                    villagerDTO.getName(),
-                    villagerDTO.getSurname(),
-                    villagerDTO.getBirthday(),
-                    villagerDTO.getIncome(),
-                    villagerDTO.getCpf()
-            );
-
+    public List<VillagerExternalIdAndName> listVillagersByMonth(Integer month){
+        try {
+            return villagerRepository
+                    .getAllByBirthdayMonth(month);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public VillagerDTO convertToDTO(VillagerEntity villagerEntity){
-        return new VillagerDTO(
-                villagerEntity.getId(),
-                villagerEntity.getName(),
-                villagerEntity.getSurname(),
-                villagerEntity.getBirthday(),
-                villagerEntity.getIncome(),
-                villagerEntity.getCpf()
-        );
+
+    public List<VillagerExternalIdAndName> listVillagerByAge(Integer age){
+        Integer year = (Calendar.getInstance().get(Calendar.YEAR) - age);
+        return villagerRepository.getAllByAge(year);
     }
 
-    public void deleteVillager(Integer id){
-        villagerDAO.deletePerId(id);
-        appUserDAO.delete(id);
+
+    public List<VillagerExternalIdAndName> listAll() {
+        return villagerRepository.findAllVillagers();
     }
 
-    public List<VillagerDTO> listVillagerByAge(Integer age){
-        return villagerDAO.listByAge(age)
-                .stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
+
+    public VillagerDTO save(VillagerDTO villagerDTO) {
+        try{
+            if(villagerDTO.getExternalId() == null){
+                villagerDTO.setExternalId(UUIDManager.generate());
+            }
+           VillagerEntity response = villagerRepository.save(villagerDTO.convertToEntity());
+            return response.convertToDTO();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public VillagerEntity convertToEntity(VillagerDTO villagerDTO) {
+        return modelMapper.map(villagerDTO, VillagerEntity.class);
+    }
+
+    public VillagerDTO convertToDTO(VillagerEntity villager) {
+        return modelMapper.map(villager, VillagerDTO.class);
     }
 
 }

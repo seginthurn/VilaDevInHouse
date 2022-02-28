@@ -1,11 +1,12 @@
 package br.com.inthurn.VilaDevInHouse.service.restservice.appservices;
 
 
-import br.com.inthurn.VilaDevInHouse.model.entity.User;
+import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
-import br.com.inthurn.VilaDevInHouse.model.transport.UserDTO;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,7 +21,7 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    private final ModelMapper modelMapper;
+    private static ModelMapper modelMapper;
 
 
     public UserService(UserRepository userRepository, ModelMapper modelMapper) {
@@ -34,7 +35,7 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDTO findByUsername(String username) {
-        return convertToDTO(userRepository.findByUsername(username));
+        return userRepository.findByUsername(username).convertToDTO();
     }
 
     public Boolean save(UserDTO userDTO) {
@@ -42,8 +43,8 @@ public class UserService implements UserDetailsService {
             return false;
         }
         try {
-            userRepository.save(convertToEntity(userDTO));
-            System.out.println(convertToEntity(userDTO));
+           UserEntity user = modelMapper.map(userDTO, UserEntity.class);
+           userRepository.save(user);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,7 +55,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username));
+        Optional<UserEntity> user = Optional.ofNullable(userRepository.findByUsername(username));
 
         if (user.isEmpty()) {
             throw new UsernameNotFoundException(username + " não foi localizado");
@@ -64,12 +65,8 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public UserDTO convertToDTO(User user) {
+    public UserDTO convertToDTO(UserEntity user) {
         return modelMapper.map(user, UserDTO.class);
-    }
-
-    public User convertToEntity(UserDTO userDTO) {
-        return modelMapper.map(userDTO, User.class);
     }
 
 }
