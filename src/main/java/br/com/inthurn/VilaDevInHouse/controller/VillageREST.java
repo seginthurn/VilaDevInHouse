@@ -62,8 +62,8 @@ public class VillageREST {
     @PostMapping("/villager/new")
     public ResponseEntity<String> addNew(@RequestBody VillagerDTO villagerDTO){
         try {
-            villageService.save(villagerDTO);
-            return ResponseEntity.ok("Usuário cadastrado!");
+            VillagerDTO response = villageService.save(villagerDTO);
+            return ResponseEntity.ok(response.getName() + " foi cadastrado com sucesso!");
         }catch (Exception e){
             return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
         }

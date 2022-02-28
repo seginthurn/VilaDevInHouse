@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 
 public class PDFManager {
 
-    public static void generateReport(String documentName, VillageReport villageReport){
+    public static Boolean generateReport(String documentName, VillageReport villageReport){
         try {
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(documentName + ".pdf"));
@@ -25,8 +25,10 @@ public class PDFManager {
             document.add(new Paragraph("Identificador: " + villageReport.getVillagerWithIncome().getIdentifier(), font));
             document.close();
 
+            return true;
         }catch (Exception e){
             e.printStackTrace();
+            return false;
         }
     }
 

@@ -21,7 +21,7 @@ public class ReportService {
     @Value("${village.budget}")
     private BigDecimal villageBudget;
 
-    public VillageReport villageReport() throws SQLException {
+    public VillageReport villageReport() {
         return new VillageReport(villageBudget, villagerRepository.villageCost(), villagerRepository.findTopByOrderByIncomeDesc());
     }
 

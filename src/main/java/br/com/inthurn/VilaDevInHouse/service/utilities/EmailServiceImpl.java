@@ -17,14 +17,12 @@ public class EmailServiceImpl {
 
     Logger logger = LoggerFactory.getLogger(EmailServiceImpl.class);
 
-
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${MAIL_USERNAME}")
-    private String from;
+    private String from = "noreply@inthurn.com.br";
 
-    public void sendMail(String to, String subject, String text) {
+    public Boolean sendMail(String to, String subject, String text) {
         try {
             MimeMessage mail = mailSender.createMimeMessage();
 
@@ -34,14 +32,16 @@ public class EmailServiceImpl {
             helper.setSubject(subject);
             helper.setText(text, true);
             logger.info("E-mail de ERRO enviado para: " + to);
-//            mailSender.send(mail);
+            mailSender.send(mail);
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void sendMailWithAttachment(String to, String subject, String text, String pathToAttachment) {
+    public Boolean sendMailWithAttachment(String to, String subject, String text, String pathToAttachment) {
         try {
             MimeMessage message = mailSender.createMimeMessage();
 
@@ -54,14 +54,39 @@ public class EmailServiceImpl {
 
             FileSystemResource file
                     = new FileSystemResource(new File(pathToAttachment));
-            helper.addAttachment("Invoice", file);
+            helper.addAttachment("report.pdf", file);
             logger.info("Email enviado para: " + to + "; Arquivo em anexo: " + file.getFilename());
 
-//            mailSender.send(message);
+            mailSender.send(message);
+            return true;
 
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
+    public Logger getLogger() {
+        return logger;
+    }
+
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
+    public JavaMailSender getMailSender() {
+        return mailSender;
+    }
+
+    public void setMailSender(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
 }

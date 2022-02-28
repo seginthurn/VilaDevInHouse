@@ -4,6 +4,7 @@ import br.com.inthurn.VilaDevInHouse.model.entity.RoleEntity;
 import br.com.inthurn.VilaDevInHouse.model.entity.UserEntity;
 import br.com.inthurn.VilaDevInHouse.model.entity.VillagerEntity;
 import br.com.inthurn.VilaDevInHouse.model.projections.VillagerExternalIdAndName;
+import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.model.transport.entities.VillagerDTO;
 import br.com.inthurn.VilaDevInHouse.repository.VillagerRepository;
 import org.apache.catalina.User;
@@ -12,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import test.utils.GenerateUser;
+import test.utils.GenerateVillager;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -21,6 +24,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+import static test.utils.GenerateVillager.generateEntity;
 
 class VillageServiceTest {
 
@@ -34,7 +38,7 @@ class VillageServiceTest {
     private VillageService villageService;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         MockitoAnnotations.openMocks(this);
     }
 
@@ -51,12 +55,12 @@ class VillageServiceTest {
     }
 
     @Test
-    void listDetailsByExternalId(){
-      VillagerDTO villagerDTO = generateEntity().convertToDTO();
-      String externalId = villagerDTO.getExternalId();
+    void listDetailsByExternalId() {
+        VillagerDTO villagerDTO = generateEntity().convertToDTO();
+        String externalId = villagerDTO.getExternalId();
 
 
-      when(villagerRepository.findByExternalId(ArgumentMatchers.eq(externalId))).thenReturn(villagerDTO.convertToEntity());
+        when(villagerRepository.findByExternalId(ArgumentMatchers.eq(externalId))).thenReturn(villagerDTO.convertToEntity());
         System.out.println(villageService.listDetailsByExternalId(externalId));
     }
 
@@ -66,7 +70,7 @@ class VillageServiceTest {
         doNothing().when(villagerRepository).deleteByExternalId(null);
         villageService.deleteById(externalId);
 
-       Mockito.verify(villagerRepository, times(1)).deleteByExternalId(ArgumentMatchers.anyString());
+        Mockito.verify(villagerRepository, times(1)).deleteByExternalId(ArgumentMatchers.anyString());
     }
 
     @Test
@@ -103,31 +107,39 @@ class VillageServiceTest {
     }
 
     @Test
-    void shouldReturnTrueWhenVillagerIsSaved() {
+    void save() {
         VillagerEntity villagerEntity = generateEntity();
-        when(villagerRepository.save(villagerEntity)).thenReturn(villagerEntity);
-        assertTrue(villageService.save(villagerEntity.convertToDTO()));
+
+        when(villagerRepository.save(any(VillagerEntity.class))).thenReturn(villagerEntity);
+        assertEquals(VillagerDTO.class, villageService.save(villagerEntity.convertToDTO()).getClass());
 
     }
 
-
     @Test
-    void shouldGenerateExternalIdWhenExternalIdIsNull() {
-
+    void shouldSetExternalIdWhenIsNull() {
+        VillagerEntity villagerEntity = generateEntity();
+        villagerEntity.convertToDTO().setExternalId(null);
+        when(villagerRepository.save(any(VillagerEntity.class))).thenReturn(villagerEntity);
+        VillagerDTO villagerDTO = villageService.save(villagerEntity.convertToDTO());
+        assertNotNull(villagerDTO.getExternalId());
 
     }
 
     @Test
     void convertToEntity() {
+        VillagerDTO villagerDTO = generateEntity().convertToDTO();
+        VillagerEntity villagerEntity = villagerDTO.convertToEntity();
+        when(modelMapper.map(villagerDTO, VillagerEntity.class)).thenReturn(villagerEntity);
+        assertEquals(villagerEntity, villageService.convertToEntity(villagerDTO));
+        Mockito.verify(modelMapper, times(1)).map(ArgumentMatchers.any(VillagerDTO.class), ArgumentMatchers.eq(VillagerEntity.class));
     }
 
     @Test
     void convertToDTO() {
-    }
-
-    private VillagerEntity generateEntity(){
-        List<RoleEntity> roles = new ArrayList<>();
-        roles.add(new RoleEntity("ADMIN"));
-        return new VillagerEntity("John", "Doe", "43212343093", new Date(1965, 10,27), new BigDecimal(102980), "8f3a0117-56d4-486a-82a1-a7399e14ff8e", new UserEntity("jhon@mail.com", "loremIps!um@", roles));
+        VillagerDTO villagerDTO = generateEntity().convertToDTO();
+        VillagerEntity villagerEntity = villagerDTO.convertToEntity();
+        when(modelMapper.map(villagerEntity, VillagerDTO.class)).thenReturn(villagerDTO);
+        assertEquals(villagerDTO, villageService.convertToDTO(villagerEntity));
+        Mockito.verify(modelMapper, times(1)).map(ArgumentMatchers.any(VillagerEntity.class), ArgumentMatchers.eq(VillagerDTO.class));
     }
 }
