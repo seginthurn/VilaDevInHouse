@@ -83,15 +83,13 @@ Passando um Json no body, exemplo:
         ]
     }
 }
-
+```
 (A data de nascimento deve ser passada no padrão AAAA-MM-DD)
 
-```
-Ecluir morador
-
+Excluir morador:
 ```
 DELETE:
-```
+
 http://localhost:8080/api/villager/delete?id=ID DO USUÁRIO
 ```
 Gerar o relatório financeiro da vila:
@@ -99,5 +97,7 @@ Gerar o relatório financeiro da vila:
 GET: http://localhost:8080/api/reports/village?email=SEU_EMAIL&vality=true
 ```
 O "vality" server para simular a tentativa de postagem da mensagem na fila.
-
+    
+Em caso de sucesso, o sistema enviará um PDF com o relatório para o email passado no parametro, em caso de falha, enviará um e-mail ao usuário o comunicando.
+    
 [⬆ Voltar ao topo](#VilaDevInHouse)<br>
