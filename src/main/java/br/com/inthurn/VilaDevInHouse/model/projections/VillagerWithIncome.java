@@ -15,4 +15,8 @@ public interface VillagerWithIncome {
     @Value("#{target.income}")
     String getIncome();
 
+//    FOR TESTS ONLY
+    void setName(String name);
+    void setIdentifier(String identifier);
+    void setIncome(String income);
 }

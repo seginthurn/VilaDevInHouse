@@ -6,6 +6,7 @@ import br.com.inthurn.VilaDevInHouse.model.security.SpringSecurityUser;
 import br.com.inthurn.VilaDevInHouse.model.transport.entities.UserDTO;
 import br.com.inthurn.VilaDevInHouse.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,7 +35,7 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDTO findByUsername(String username) {
-        return convertToDTO(userRepository.findByUsername(username));
+        return userRepository.findByUsername(username).convertToDTO();
     }
 
     public Boolean save(UserDTO userDTO) {
@@ -66,10 +67,6 @@ public class UserService implements UserDetailsService {
 
     public UserDTO convertToDTO(UserEntity user) {
         return modelMapper.map(user, UserDTO.class);
-    }
-
-    public UserEntity convertToEntity(UserDTO userDTO) {
-        return modelMapper.map(userDTO, UserEntity.class);
     }
 
 }

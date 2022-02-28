@@ -5,67 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2d0d29e-3f86-41c0-89c2-eb941a191a98" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/test/utils/GenerateUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/test/utils/GenerateVillager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Relatório.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Relatório.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/VilaDevInHouseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/VilaDevInHouseApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/RabbitMQConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/binding/BindingManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/exchange/ExchangeManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/exchange/ExchangeManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/queue/QueueManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/config/rabbitmq/queue/QueueManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/DLXConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/DLXConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/controller/VillageREST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/report/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/DateUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/EmailConsumer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/consumer/ReportConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/ReportREST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/ReportREST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/UserREST.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/UserREST.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/controller/VillageRest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/RoleEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/entity/VillagerEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerExternalIdAndName.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerExternalIdAndName.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/projections/VillagerWithIncome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/report/VillageReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/report/VillageReport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/security/SpringSecurityUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/security/SpringSecurityUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/RoleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/RoleDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/VillagerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/entities/VillagerDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/messages/ReportMessageDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/messages/ReportMessageDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/reports/VillageReportDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/transport/reports/VillageReportDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/view/villager/ExternalIdAndFullNameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/model/view/villager/ExternalIdAndFullNameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/RoleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/RoleRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/repository/VillagerRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/security/AuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/security/AuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/security/ValidationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/security/ValidationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/infrastructure/messagebroker/rabbitmq/RabbitMQService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/infrastructure/messagebroker/rabbitmq/RabbitMQService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/infrastructure/security/encoder/Encryptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/infrastructure/security/encoder/Encryptor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/report/ReportService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restService/villageService/VillageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/RoleService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/restservice/appservices/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/DateUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/DateUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/DateUtility.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/EmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/EmailServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/PDFManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/VilaDevInHouseApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/VilaDevInHouseApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/service/restservice/villageService/VillageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/inthurn/VilaDevInHouse/service/utilities/UUIDManagerTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\gabri\Desktop\coverageReport" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,12 +65,16 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -106,31 +102,36 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Spring Boot.VilaDevInHouseApplication">
-    <configuration name="VillageServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.inthurn.VilaDevInHouse.service.utilities" />
+      <recent name="br.com.inthurn.VilaDevInHouse.service.infrastructure.security.encoder" />
+      <recent name="br.com.inthurn.VilaDevInHouse.service.infrastructure.messagebroker.rabbitmq" />
+      <recent name="br.com.inthurn.VilaDevInHouse.service.restservice.appservices" />
+      <recent name="br.com.inthurn.VilaDevInHouse.service.restservice.report" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="test.utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.br.com.inthurn.VilaDevInHouse.service.restservice in VilaDevInHouse">
+    <configuration name="All in VilaDevInHouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="VilaDevInHouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService" />
-      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice.villageService.VillageServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VilaDevInHouseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="VilaDevInHouse" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <envs>
         <env name="DB_HOST" value="jdbc:mariadb://localhost:3306/viladevinhouse?createDatabaseIfNotExist=true" />
         <env name="DB_USERNAME" value="root" />
@@ -140,20 +141,107 @@
         <env name="RABBIT_PORT" value="5672" />
         <env name="RABBIT_USERNAME" value="admin" />
         <env name="RABBIT_PASSWORD" value="admin" />
-        <env name="MAIL_USERNAME" value="admin" />
-        <env name="MAIL_PASSWORD" value="admin" />
+        <env name="MAIL_USERNAME" value="noreply@inthurn.com.br" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.EmailServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceImplTest.sendMail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.EmailServiceImplTest" />
+      <option name="METHOD_NAME" value="sendMail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceImplTest.shouldReturnFalseIfNotsendMail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities" />
+      <option name="MAIN_CLASS_NAME" value="br.com.inthurn.VilaDevInHouse.service.utilities.EmailServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldReturnFalseIfNotsendMail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="br.com.inthurn.VilaDevInHouse.service.restservice in VilaDevInHouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="VilaDevInHouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.inthurn.VilaDevInHouse.service.restservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.inthurn.VilaDevInHouse.service.restservice" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VilaDevInHouseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="VilaDevInHouse" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.inthurn.VilaDevInHouse.VilaDevInHouseApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <envs>
+        <env name="DB_USERNAME" value="root" />
+        <env name="DB_PASSWORD" value="102030" />
+        <env name="VILLAGE_BUDGET" value="800000000" />
+        <env name="RABBIT_HOST" value="localhost" />
+        <env name="RABBIT_PORT" value="5672" />
+        <env name="RABBIT_USERNAME" value="admin" />
+        <env name="RABBIT_PASSWORD" value="admin" />
+        <env name="MAIL_USERNAME" value="noreply@inthurn.com.br" />
+        <env name="DB_HOST" value="jdbc:mariadb://localhost:3306/viladevinhouse?createDatabaseIfNotExist=true" />
       </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.VillageServiceTest" />
+      <item itemvalue="JUnit.EmailServiceImplTest.sendMail" />
+      <item itemvalue="JUnit.EmailServiceImplTest.shouldReturnFalseIfNotsendMail" />
+      <item itemvalue="JUnit.EmailServiceImplTest" />
+      <item itemvalue="JUnit.All in VilaDevInHouse" />
+      <item itemvalue="JUnit.br.com.inthurn.VilaDevInHouse.service.restservice in VilaDevInHouse" />
       <item itemvalue="Spring Boot.VilaDevInHouseApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VillageServiceTest" />
+        <item itemvalue="JUnit.br.com.inthurn.VilaDevInHouse.service.restservice in VilaDevInHouse" />
+        <item itemvalue="JUnit.All in VilaDevInHouse" />
+        <item itemvalue="JUnit.EmailServiceImplTest.shouldReturnFalseIfNotsendMail" />
+        <item itemvalue="JUnit.EmailServiceImplTest.sendMail" />
+        <item itemvalue="JUnit.EmailServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -168,10 +256,67 @@
       <workItem from="1645997287620" duration="341000" />
       <workItem from="1645997672076" duration="221000" />
       <workItem from="1645998056093" duration="55000" />
+      <workItem from="1645999628156" duration="374000" />
+      <workItem from="1646000026408" duration="329000" />
+      <workItem from="1646000541699" duration="13137000" />
+      <workItem from="1646014146091" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$UserServiceTest_shouldReturnFalseIfUserIsNull.ic" NAME="UserServiceTest.shouldReturnFalseIfUserIsNull Coverage Results" MODIFIED="1646009921970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.appservices.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$UserServiceTest_findByUsername.ic" NAME="UserServiceTest.findByUsername Coverage Results" MODIFIED="1646004758391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.appservices.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$All_in_VilaDevInHouse.ic" NAME="All in VilaDevInHouse Coverage Results" MODIFIED="1646013808836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$VillageServiceTest_convertToEntity.ic" NAME="VillageServiceTest.convertToEntity Coverage Results" MODIFIED="1646001478447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$VillageServiceTest.exec" NAME="VillageServiceTest Coverage Results" MODIFIED="1646002213750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$br_com_inthurn_VilaDevInHouse_service_restservice_in_VilaDevInHouse.ic" NAME="br.com.inthurn.VilaDevInHouse.service.restservice in VilaDevInHouse Coverage Results" MODIFIED="1646014035223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$VilaDevInHouseApplicationTests.ic" NAME="VilaDevInHouseApplicationTests Coverage Results" MODIFIED="1646009971344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$VillageServiceTest_convertToDTO.ic" NAME="VillageServiceTest.convertToDTO Coverage Results" MODIFIED="1646001289679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$br_com_inthurn_VilaDevInHouse_in_VilaDevInHouse.ic" NAME="br.com.inthurn.VilaDevInHouse in VilaDevInHouse Coverage Results" MODIFIED="1646009997375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$UserServiceTest_shouldReturnTrueWhenUserIsSaved.ic" NAME="UserServiceTest.shouldReturnTrueWhenUserIsSaved Coverage Results" MODIFIED="1646009944143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.appservices.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$ReportServiceTest.ic" NAME="ReportServiceTest Coverage Results" MODIFIED="1646002846627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.report.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$VillageServiceTest.ic" NAME="VillageServiceTest Coverage Results" MODIFIED="1646009989348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.villageService.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1646009957783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.appservices.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/VilaDevInHouse$UserServiceTest_findAll.ic" NAME="UserServiceTest.findAll Coverage Results" MODIFIED="1646009829491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>br.com.inthurn.VilaDevInHouse.service.restservice.appservices.*</FILTER>
+    </SUITE>
   </component>
 </project>

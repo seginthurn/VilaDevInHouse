@@ -62,16 +62,17 @@ public class VillageService{
         return villagerRepository.findAllVillagers();
     }
 
-    public Boolean save(VillagerDTO villagerDTO) {
+
+    public VillagerDTO save(VillagerDTO villagerDTO) {
         try{
             if(villagerDTO.getExternalId() == null){
                 villagerDTO.setExternalId(UUIDManager.generate());
             }
-            villagerRepository.save(this.convertToEntity(villagerDTO));
-            return true;
+           VillagerEntity response = villagerRepository.save(villagerDTO.convertToEntity());
+            return response.convertToDTO();
         }catch (Exception e){
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
